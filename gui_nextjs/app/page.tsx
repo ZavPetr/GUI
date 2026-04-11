@@ -3,28 +3,52 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  const [name, setName] = useState("");
-  const [signIn, setSignIn] = useState(false);
+  // 1. Přidáme state, který nám řekne, jestli už jsme v prohlížeči
+  const [isMounted, setIsMounted] = useState(false);
 
-  // 1. NAČTENÍ: Když se stránka poprvé "narodí", podívej se do šuplíku
-  useEffect(() => {
-    const ulozeneJmeno = localStorage.getItem("student-name");
-    if (ulozeneJmeno) {
-      setName(ulozeneJmeno);
-      setSignIn(true);
+  // 2. Načteme data rovnou při startu (vyhneme se useEffectu a potěšíme linter).
+  // typeof window !== "undefined" nás chrání před pádem na serveru.
+  const [name, setName] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("student-name") || "";
     }
-  }, []);
+    return "";
+  });
 
-  // 2. ULOŽENÍ: Funkce, která se spustí při kliku na tlačítko
+  const [signIn, setSignIn] = useState(() => {
+    if (typeof window !== "undefined") {
+      // !! převede nalezený text na true, pokud tam nic není, vrátí false
+      return !!localStorage.getItem("student-name");
+    }
+    return false;
+  });
+
+// 3. Po prvním nahrání stránky přepneme na true (ASYNCHRONNĚ)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+
+    // Správná praxe: po sobě uklidit, pokud by uživatel ze stránky rychle odešel
+    return () => clearTimeout(timer);
+  }, []);
+  // 4. HYDRATION FIX: Dokud nejsme plně v prohlížeči, nevykreslujeme aplikaci.
+  // Tím zabráníme tomu, aby server a klient viděli odlišná data.
+  if (!isMounted) {
+    return null; // Zde může být i loading spinner
+  }
+
+  // ---- ZBYTEK TVÉHO KÓDU ZŮSTÁVÁ STEJNÝ ----
+
   const handleInput = () => {
     if (name.trim() !== "") {
-      localStorage.setItem("student-name", name); // Šup s tím do šuplíku!
+      localStorage.setItem("student-name", name);
       setSignIn(true);
     }
   };
 
   const handleSignOut = () => {
-    localStorage.removeItem("student-name"); // Vyprázdnit šuplík
+    localStorage.removeItem("student-name");
     setName("");
     setSignIn(false);
   };
