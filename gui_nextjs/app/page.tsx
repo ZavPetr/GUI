@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
+  // 1. Přidáme state, který nám řekne, jestli už jsme v prohlížeči
   const [isMounted, setIsMounted] = useState(false);
 
-  // 1. NAČTENÍ JMÉNA: Podíváme se do localStorage
+  // 2. Načteme data rovnou při startu (vyhneme se useEffectu a potěšíme linter).
+  // typeof window !== "undefined" nás chrání před pádem na serveru.
   const [name, setName] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("student-name") || "";
@@ -15,21 +17,29 @@ export default function Home() {
 
   const [signIn, setSignIn] = useState(() => {
     if (typeof window !== "undefined") {
+      // !! převede nalezený text na true, pokud tam nic není, vrátí false
       return !!localStorage.getItem("student-name");
     }
     return false;
   });
 
-  // 2. HYDRATION FIX: Asynchronní přepnutí po načtení
+// 3. Po prvním nahrání stránky přepneme na true (ASYNCHRONNĚ)
   useEffect(() => {
-    const timer = setTimeout(() => setIsMounted(true), 0);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+
+    // Správná praxe: po sobě uklidit, pokud by uživatel ze stránky rychle odešel
     return () => clearTimeout(timer);
   }, []);
+  // 4. HYDRATION FIX: Dokud nejsme plně v prohlížeči, nevykreslujeme aplikaci.
+  // Tím zabráníme tomu, aby server a klient viděli odlišná data.
+  if (!isMounted) {
+    return null; // Zde může být i loading spinner
+  }
 
-  // Dokud není aplikace načtena v prohlížeči, nevykresluj nic
-  if (!isMounted) return null;
+  // ---- ZBYTEK TVÉHO KÓDU ZŮSTÁVÁ STEJNÝ ----
 
-  // 3. FUNKCE PRO PŘIHLÁŠENÍ / ODHLÁŠENÍ
   const handleInput = () => {
     if (name.trim() !== "") {
       localStorage.setItem("student-name", name);
@@ -43,17 +53,14 @@ export default function Home() {
     setSignIn(false);
   };
 
-  // ==========================================
-  // OBRAZOVKA 1: NEPŘIHLÁŠENÝ UŽIVATEL
-  // ==========================================
   if (!signIn) {
     return (
       <main className="flex flex-col items-center p-20">
-        <div className="border-4 border-black p-10 rounded-3xl text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white karta-stin">
-          <h1 className="hlavni-nadpis mb-4">Vítej!</h1>
+        <div className="border-4 border-black p-10 rounded-3xl text-center">
+          <h1 className="text-3xl font-bold mb-4">Vítej!</h1>
           <input
             type="text"
-            placeholder="Tvé jméno..."
+            placeholder="Jméno..."
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="border-2 border-gray-300 p-2 rounded-lg block w-full mb-4 text-black"
@@ -69,31 +76,25 @@ export default function Home() {
     );
   }
 
-  // ==========================================
-  // OBRAZOVKA 2: PŘIHLÁŠENÝ UŽIVATEL
-  // ==========================================
   return (
     <main className="p-10">
       <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
-        {/* Tady už uživatele vítáme jeho jménem */}
-        <h1 className="hlavni-nadpis">Ahoj, {name}!</h1>
-        <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">
-          Odhlásit
-        </button>
+        <h1 className="text-4xl font-bold">Ahoj, {name}!</h1>
+        <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">Odhlásit</button>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-         <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+         <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl hover:bg-green-100 hover:border-green-500 transition">
            <h2 className="text-2xl font-bold mb-2">Úkoly</h2>
            <p>Tady už tvoje jméno bude taky!</p>
          </Link>
 
-        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl hover:bg-red-100 hover:border-red-700 transition">
           <h2 className="text-2xl font-bold mb-2">Rozvrh</h2>
           <p>Kdy mám přednášky.</p>
         </Link>
 
-        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
           <h2 className="text-2xl font-bold mb-2">Motivace</h2>
           <p>Tip pro dnešní den.</p>
         </Link>
