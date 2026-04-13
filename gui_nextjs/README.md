@@ -9,11 +9,11 @@ Pokud jste si projekt právě stáhli (naklonovali z repozitáře), musíte ho n
    ```bash
    npm install
 
+English version:
+
 # Phase 0: Clean Slate (Starting Line)
 
-Welcome to the very beginning of our workshop! 
-
-This branch (`00-start`) contains a freshly generated Next.js project that we've already "cleaned up" for you. It's your perfectly blank canvas, ready for your own code.
+This branch (`00-start`) contains a freshly generated Next.js project that we've already clean up for you.
 
 ## How to run the project
 If you just downloaded (cloned) the project, you need to bring it to life first:
