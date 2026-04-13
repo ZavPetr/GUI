@@ -7,11 +7,16 @@ export default function Ukoly() {
   const [text, setText] = useState("");
 
   // FUNKCE PRO SMAZÁNÍ
-  const smazUkol = (indexKeSmazani: Number) => {
+  const smazUkol = (indexKeSmazani: number) => {
     // Vytvoříme nové pole, které obsahuje všechno KROMĚ toho indexu, co chceme smazat
     const novePole = ukoly.filter((_, i) => i !== indexKeSmazani);
     setUkoly(novePole);
   };
+
+  const smazVsechnyUkoly = () => {
+    setUkoly([]);
+  };
+
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
@@ -35,6 +40,15 @@ export default function Ukoly() {
         >
           Přidat
         </button>
+
+
+        <button
+          onClick={() => smazVsechnyUkoly()}
+          className="text-red-500 font-bold border-2 border-red-400 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
+        >
+          Smazat Všechny Úkoly
+        </button>
+
       </div>
 
       {/* SEZNAM */}
