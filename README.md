@@ -1,4 +1,4 @@
-#Fáze 0: Začátek
+# Fáze 0: Začátek
 
 Tato větev (`00-start`) obsahuje čerstvě vygenerovaný projekt Next.js, který jsme pro vás už "uklidili".
 
