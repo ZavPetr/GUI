@@ -38,6 +38,10 @@ export default async function RozvrhPage() {
         <h1 className="text-5xl font-black italic uppercase tracking-tighter">
           Rozvrh na {todaysKey} {formattedDate}
         </h1>
+
+        <p className="mt-4 text-xl font-bold bg-yellow-300 inline-block px-4 py-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          Celkem hodin: {dnesniHodiny.length}
+        </p>
       </header>
 
       <div className="flex flex-col gap-6">
