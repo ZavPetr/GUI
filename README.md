@@ -8,6 +8,6 @@ Tohle je první části naší hodiny. V této fázi se seznámíme s Next.js, p
 * **`app/page.tsx`:** Naše domovská stránka. Naučíme se zde pracovat s pamětí prohlížeče (`localStorage`), abychom si pamatovali jméno studenta. 
   * *Poznámka:* Používáme zde asynchronní trik s `Promise.resolve().then()`, abychom obešli přísná pravidla Reactu a vyhnuli se bílým obrazovkám při načítání.
 
-##  Samostatný úkol (Pro rychlíky)
+##  Samostatný úkol
 Naše domovská stránka má nyní 3 karty (Úkoly, Rozvrh, Motivace). 
 Vaším úkolem je přidat **čtvrtou kartu** s názvem "Kontakty", která povede na adresu `/contacts`. Upravte její CSS třídy tak, aby při najetí myší (hover efekt) zmodrala (např. `hover:bg-blue-100` a `hover:border-blue-500`).
