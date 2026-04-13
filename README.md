@@ -1,13 +1,6 @@
 #  Fáze 1: Základy, UI a Přihlašování
 
-Vítejte v první části našeho workshopu! V této fázi se seznámíme s Next.js, propojíme Tailwind CSS s našimi vlastními styly a vytvoříme hlavní rozcestník aplikace s funkčním přihlašováním.
-
-## 🛠 Jak projekt spustit
-1. Otevřete terminál a nainstalujte balíčky:
-   `npm install`
-2. Spusťte vývojový server:
-   `npm run dev`
-3. Otevřete v prohlížeči: **http://localhost:3000**
+Tohle je první části naší hodiny. V této fázi se seznámíme s Next.js, propojíme Tailwind CSS s našimi vlastními styly a vytvoříme hlavní rozcestník aplikace s funkčním přihlašováním.
 
 ##  Co v této fázi tvoříme
 * **`app/globals.css`:** Tady máme základní nastavení Tailwindu a naše vlastní CSS třídy (např. `.karta-stin` pro retro vzhled).
