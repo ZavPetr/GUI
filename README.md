@@ -15,7 +15,7 @@ Pokud jste si projekt právě stáhli (naklonovali z repozitáře), musíte ho n
 2. Otevřete v prohlížeči: **http://localhost:3000**
 
 
-#English version
+## English version
 
 # Phase 0: Start
 
