@@ -1,20 +1,17 @@
-#  Fáze 1: Základy, UI a Přihlašování
+#  Fáze 4: Server Components a Motivace z webu
 
-Vítejte v první části našeho workshopu! V této fázi se seznámíme s Next.js, propojíme Tailwind CSS s našimi vlastními styly a vytvoříme hlavní rozcestník aplikace s funkčním přihlašováním.
+Velké finále! Ukážeme si největší sílu frameworku Next.js: Serverové komponenty. Stáhneme si data ze skutečného, cizího serveru na internetu, a to tak, že prohlížeč uživatele neudělá absolutně žádnou práci.
 
-## 🛠 Jak projekt spustit
-1. Otevřete terminál a nainstalujte balíčky:
-   `npm install`
-2. Spusťte vývojový server:
-   `npm run dev`
-3. Otevřete v prohlížeči: **http://localhost:3000**
+##  Jak pokračovat
+Restartujte server (`Ctrl + C` -> `npm run dev`).
 
 ##  Co v této fázi tvoříme
-* **`app/globals.css`:** Tady máme základní nastavení Tailwindu a naše vlastní CSS třídy (např. `.karta-stin` pro retro vzhled).
-* **`app/layout.tsx`:** Hlavní obal celé aplikace. Zde definujeme, že chceme všude bílé pozadí a černý text.
-* **`app/page.tsx`:** Naše domovská stránka. Naučíme se zde pracovat s pamětí prohlížeče (`localStorage`), abychom si pamatovali jméno studenta. 
-  * *Poznámka:* Používáme zde asynchronní trik s `Promise.resolve().then()`, abychom obešli přísná pravidla Reactu a vyhnuli se bílým obrazovkám při načítání.
+* **`app/motivation/page.tsx`:** Zcela nová stránka pro denní motivaci.
+  * **Všimněte si, že zde CHYBÍ `"use client"`!** Tato stránka se celá vygeneruje už na serveru.
+  * Komponenta je `async` a používáme `await fetch(...)` pro stažení dat z veřejného API `https://api.adviceslip.com/advice`.
+  * Do prohlížeče se pošle už rovnou hotové, vyrenderované HTML s textem rady. Žádné zdržování, žádné načítání.
 
 ##  Samostatný úkol (Pro rychlíky)
-Naše domovská stránka má nyní 3 karty (Úkoly, Rozvrh, Motivace). 
-Vaším úkolem je přidat **čtvrtou kartu** s názvem "Kontakty", která povede na adresu `/contacts`. Upravte její CSS třídy tak, aby při najetí myší (hover efekt) zmodrala (např. `hover:bg-blue-100` a `hover:border-blue-500`).
+API nám ve svém JSON objektu vrací nejen samotný text rady, ale také její identifikační číslo (ID).
+Najděte v kódu, jak se k tomuto číslu v objektu `data` dostat, a vypište ho přímo do nadpisu stránky. 
+*Cílový stav by měl vypadat například takto: "Rada #15 pro dnešní den:"*
