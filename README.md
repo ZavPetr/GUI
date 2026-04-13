@@ -2,7 +2,7 @@
 
 Tato větev (`00-start`) obsahuje čerstvě vygenerovaný projekt Next.js, který jsme pro vás už "uklidili".
 
-## Jak projekt spustit
+## Jak projekt připravit
 Pokud jste si projekt právě stáhli (naklonovali z repozitáře), musíte ho nejprve oživit:
 
 1. Otevřete terminál a nainstalujte všechny potřebné balíčky (to stačí udělat jen jednou):
@@ -21,14 +21,14 @@ Pokud jste si projekt právě stáhli (naklonovali z repozitáře), musíte ho n
 
 This branch (`00-start`) contains a freshly generated Next.js project that we have already "cleaned up" for you.
 
-## How to run the project
+## How to prepare the project
 If you just downloaded (cloned from the repository) the project, you must first bring it to life:
 
 1. Open the terminal and install all necessary packages (you only need to do this once):
    ```bash
    npm install
 
-## How to run projekt
+## How to run project
 1. Run dev server:
    `npm run dev`
 2. In browser open: **http://localhost:3000**
