@@ -32,3 +32,38 @@ Než začneme kódit, ujistěte se, že máte na svém počítači nainstalován
 
 ---
 
+## English version
+
+# Student Introduction
+
+Welcome to the Main Branch for the **GUI (Graphical User Interfaces)** course!
+
+This project serves as an interactive guide to building a modern full-stack web application. During this workshop, we will build a personal student dashboard from scratch and explore how professional websites are created today.
+
+---
+
+## About the Project and Its Features
+This `main` branch contains the final, fully functional code of the entire project. Our application simulates a modern information system and includes the following modules:
+
+* **Authentication:** A welcome screen with personalized greetings and persistent storage of the user's name using browser cache (`localStorage`).
+* **Homework Tracker (To-Do List):** Interactive task management with the ability to add and delete items (demonstrating React State).
+* **Dynamic Schedule:** A display of today's lectures and seminars. Data is fetched from our own local REST API.
+* **Motivator:** A random advice generator that fetches data from an external public API using Server Components (zero load on the user's computer).
+
+---
+
+## Tech Stack
+* **[Next.js (App Router)](https://nextjs.org/)**: A powerful React framework that allows us to write both frontend and backend (API) within a single project.
+* **[React](https://react.dev/)**: A library for building interactive user interfaces. We will make extensive use of Hooks (`useState`, `useEffect`).
+* **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid and modern styling directly in HTML without writing long CSS files.
+* **TypeScript**: A language that adds static typing to JavaScript, helping us catch errors before we even run the code.
+
+---
+
+## Prerequisites (Before we begin)
+Before we start coding, make sure you have the following installed on your computer:
+1. **[Node.js](https://nodejs.org/en/)** (Version 18.x or newer recommended)
+2. **[Git](https://git-scm.com/)** (For cloning the repository and switching between lessons)
+3. **Code Editor** (We recommend [Visual Studio Code](https://code.visualstudio.com/))
+
+---
