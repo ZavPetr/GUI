@@ -28,7 +28,7 @@ If you just downloaded (cloned from the repository) the project, you must first 
    ```bash
    npm install
 
-## How to run project
+## How to run the project
 1. Run dev server:
    `npm run dev`
 2. In browser open: **http://localhost:3000**
