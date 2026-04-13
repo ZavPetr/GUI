@@ -32,27 +32,3 @@ Než začneme kódit, ujistěte se, že máte na svém počítači nainstalován
 
 ---
 
-##  Jak projekt spustit lokálně
-
-**1. Naklonujte si repozitář na svůj disk:**
-```bash
-git clone [VLOŽTE-URL-VAŠEHO-REPOZITÁŘE]
-cd [NAZEV-SLOZKY]
-
-nebo
-
-npx create-next-app@latest studentsky-dashboard
-
-Během instalace odpovídejte na otázky přesně takto:
-
-Would you like to use TypeScript? -> Yes
-Would you like to use ESLint? -> Yes
-Would you like to use Tailwind CSS? -> Yes
-Would you like your code inside a src/ directory? -> No
-Would you like to use App Router? (recommended) -> Yes
-Would you like to customize the default import alias? -> No
-
-cd studentsky-dashboard
-npm run dev
-
-
