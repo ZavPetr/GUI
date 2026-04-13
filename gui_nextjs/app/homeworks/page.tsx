@@ -13,6 +13,10 @@ export default function Ukoly() {
     setUkoly(novePole);
   };
 
+  const smazVsechnyUkoly = () => {
+    setUkoly([]);
+  };
+
   return (
     <main className="p-10 max-w-2xl mx-auto">
       <Link href="/" className="text-blue-500 font-bold hover:underline">← Zpět domů</Link>
@@ -34,6 +38,13 @@ export default function Ukoly() {
           className="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800"
         >
           Přidat
+        </button>
+
+        <button
+          onClick={() => smazVsechnyUkoly()}
+          className="text-red-500 font-bold border-2 border-red-400 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
+        >
+          Smazat Všechny Úkoly
         </button>
       </div>
 
