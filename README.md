@@ -11,10 +11,15 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
   * Komponenta je `async` a používáme `await fetch(...)` pro stažení dat z veřejného API `https://api.adviceslip.com/advice`.
   * Do prohlížeče se pošle už rovnou hotové, vyrenderované HTML s textem rady. Žádné zdržování, žádné načítání.
 
-##  Samostatný úkol (Pro rychlíky)
-API nám ve svém JSON objektu vrací nejen samotný text rady, ale také její identifikační číslo (ID).
-Najděte v kódu, jak se k tomuto číslu v objektu `data` dostat, a vypište ho přímo do nadpisu stránky. 
-*Cílový stav by měl vypadat například takto: "Rada #15 pro dnešní den:"*
+##  Samostatné úkoly
+
+1. **Práce s daty:** API nám ve svém JSON objektu vrací nejen samotný text rady, ale také její identifikační číslo (ID). Najděte v kódu, jak se k tomuto číslu v objektu `data` dostat, a vypište ho přímo do nadpisu stránky. 
+   * *Cílový stav: "Rada #15 pro dnešní den:"*
+
+2. **Kreativní výzva (Obsah stránky):** Najděte v projektu již vytvořený soubor `app/contacts/page.tsx`. Aktuálně je v něm jen prázdná kostra. Naplňte ji kompletním obsahem s kontaktními údaji (můžete použít smyšlené údaje). 
+   * **Požadavky:** Stránka musí obsahovat funkční odkaz zpět na dashboard, musí být nastylovaná pomocí Tailwindu a její design by měl ladit se zbytkem aplikace (použijte karty, stíny nebo barvy, které jsme se naučili). Je to jen na vaší fantazii.
+
+---
 
 ## English version
 
@@ -31,7 +36,10 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
   * The component is `async`, and we use `await fetch(...)` to download data from the public API `https://api.adviceslip.com/advice`.
   * Ready-to-use, rendered HTML with the advice text is sent directly to the browser. No delays, no client-side loading.
 
-## Independent Task (For fast learners)
-The API returns not only the advice text itself in its JSON object but also its identification number (ID).
-Find in the code how to access this number within the `data` object and print it directly into the page heading. 
-*The final result should look something like this: "Advice #15 for today:"*
+## Independent Tasks
+
+1. **Data Handling (For fast learners):** The API returns not only the advice text itself in its JSON object but also its identification number (ID). Find in the code how to access this number within the `data` object and print it directly into the page heading. 
+   * *Target result: "Advice #15 for today:"*
+
+2. **Creative Challenge (Page Content):** Locate the existing file `app/contacts/page.tsx` in the project. Currently, it only contains an empty skeleton. Fill it with complete contact information (fictional data is fine).
+   * **Requirements:** The page must include a working link back to the dashboard, must be styled using Tailwind, and its design should match the rest of the application (use the cards, shadows, or colors we’ve learned). It's entirely up to your imagination.
