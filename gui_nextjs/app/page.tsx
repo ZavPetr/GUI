@@ -82,17 +82,17 @@ export default function Home() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-         <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+         <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl hover:bg-green-100 hover:border-green-500 transition">
            <h2 className="text-2xl font-bold mb-2">Úkoly</h2>
-           <p>Tady už tvoje jméno bude taky!</p>
+           <p>Tvé úkoly.</p>
          </Link>
 
-        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl hover:bg-red-100 hover:border-red-700 transition">
           <h2 className="text-2xl font-bold mb-2">Rozvrh</h2>
           <p>Kdy mám přednášky.</p>
         </Link>
 
-        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl bg-white karta-stin">
+        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
           <h2 className="text-2xl font-bold mb-2">Motivace</h2>
           <p>Tip pro dnešní den.</p>
         </Link>
