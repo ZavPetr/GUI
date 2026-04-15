@@ -12,7 +12,7 @@ Nezapomeňte aplikaci restartovat (`Ctrl + C` -> `npm run dev`), pokud jste měn
   * Data z našeho API stahujeme pomocí funkce `fetch`.
   * Pomocí JavaScriptu zjišťujeme aktuální den a filtrujeme z rozvrhu jen dnešní hodiny.
 
-##  Samostatný úkol (Pro rychlíky)
+##  Samostatný úkol
 Naše aplikace aktuálně vypíše seznam dnešních hodin (nebo hlášku, že máte volno). 
 Zkuste upravit kód tak, aby se přímo pod velkým nadpisem (např. "Rozvrh na Čtvrtek") vypsal i celkový počet hodin.
 *Nápověda: Pokud máte v proměnné `dnesniHodiny` uložené pole, můžete zjistit jeho délku pomocí vlastnosti `.length`.*
