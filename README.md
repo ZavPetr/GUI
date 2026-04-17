@@ -41,7 +41,9 @@ npm run dev
 ## Užitečné odkazy
 
 Tailwind CSS Cheat Sheet : **https://nerdcave.com/tailwind-cheat-sheet**
+
 Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
+
 Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
 
 
@@ -91,5 +93,7 @@ npm run dev
 ## Useful links
 
 Tailwind CSS Cheat Sheet : **https://nerdcave.com/tailwind-cheat-sheet**
+
 Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
+
 Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
