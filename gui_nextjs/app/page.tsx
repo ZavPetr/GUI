@@ -89,17 +89,17 @@ export default function Home() {
            <p>Tady už tvoje jméno bude taky!</p>
          </Link>
 
-        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl hover:bg-red-100 hover:border-red-700 transition">
+        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-red-100 hover:border-red-700 transition">
           <h2 className="text-2xl font-bold mb-2">Rozvrh</h2>
           <p>Kdy mám přednášky.</p>
         </Link>
 
-        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
+        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
           <h2 className="text-2xl font-bold mb-2">Motivace</h2>
           <p>Tip pro dnešní den.</p>
         </Link>
 
-        <Link href="/contacts" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
+        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
           <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
           <p>Tady se nacházejí kontakty na tebe.</p>
         </Link>
