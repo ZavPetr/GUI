@@ -46,14 +46,14 @@ export default function Home() {
   // --------------------------------------------------------
   // OBRAZOVKA 1: NEPŘIHLÁŠENÝ UŽIVATEL
   // --------------------------------------------------------
-  if (!signIn) {
+ if (!signIn) {
     return (
       <main className="flex flex-col items-center p-20">
-        <div className="border-4 border-black p-10 rounded-3xl text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white karta-stin">
-          <h1 className="hlavni-nadpis mb-4">Vítej!</h1>
+        <div className="border-4 border-black p-10 rounded-3xl text-center">
+          <h1 className="text-3xl font-bold mb-4">Vítej!</h1>
           <input
             type="text"
-            placeholder="Tvé jméno..."
+            placeholder="Jméno..."
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="border-2 border-gray-300 p-2 rounded-lg block w-full mb-4 text-black"
@@ -74,12 +74,11 @@ export default function Home() {
   // --------------------------------------------------------
   return (
     <main className="p-10">
-      <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
-        <h1 className="hlavni-nadpis">Ahoj, {name}!</h1>
-        <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">
-          Odhlásit
-        </button>
+     <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
+        <h1 className="text-4xl font-bold">Ahoj, {name}!</h1>
+        <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">Odhlásit</button>
       </header>
+
 
        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
          <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl hover:bg-green-100 hover:border-green-500 transition">
