@@ -92,12 +92,12 @@ export default function Home() {
           <p>Kdy mám přednášky.</p>
         </Link>
 
-        <Link href="/motivation" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
+        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
           <h2 className="text-2xl font-bold mb-2">Motivace</h2>
           <p>Tip pro dnešní den.</p>
         </Link>
 
-        <Link href="/contacts" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
+        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
           <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
           <p>Tady se nacházejí kontakty na tebe.</p>
         </Link>
