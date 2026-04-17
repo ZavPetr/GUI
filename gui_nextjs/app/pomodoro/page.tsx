@@ -10,20 +10,30 @@ export default function PomodoroPage() {
 
   // 2. TIMER LOGIC
   useEffect(() => {
-    let interval: any = null;
+  let interval: ReturnType<typeof setInterval>;
 
-    if (isActive && seconds > 0) {
-      interval = setInterval(() => {
-        setSeconds((prev) => prev - 1);
-      }, 1000);
-    } else if (seconds === 0) {
-      setIsActive(false);
-      // České hlášky pro uživatele
-      alert(isBreak ? "Pauza skončila! Šup do práce." : "Práce hotova! Dej si pauzu.");
-    }
+  if (isActive) {
+    interval = setInterval(() => {
+      setSeconds((prev) => {
+        if (prev <= 1) {
+          // Jakmile čas vyprší, rovnou interval zastavíme
+          clearInterval(interval);
 
-    return () => clearInterval(interval);
-  }, [isActive, seconds, isBreak]);
+          // Asynchronní zpoždění zabrání ESLint chybě
+          setTimeout(() => {
+            setIsActive(false);
+            alert(isBreak ? "Pauza skončila! Šup do práce." : "Práce hotova! Dej si pauzu.");
+          }, 10);
+
+          return 0; // Nastaví sekundy na 0
+        }
+        return prev - 1; // Jinak prostě odečte 1
+      });
+    }, 1000);
+  }
+
+  return () => clearInterval(interval);
+}, [isActive, isBreak]); // 'seconds' už tu není potřeba
 
   // 3. HELPER FUNCTIONS
   const formatTime = () => {
@@ -85,7 +95,7 @@ export default function PomodoroPage() {
       </div>
 
       <p className="mt-12 text-center text-gray-500 italic">
-        "Technika Pomodoro ti pomůže udržet mozek v kondici."
+        Technika Pomodoro ti pomůže udržet mozek v kondici.
       </p>
     </main>
   );
