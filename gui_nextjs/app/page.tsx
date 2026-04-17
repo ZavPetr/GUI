@@ -41,8 +41,10 @@ export default function Home() {
   // ---- ZBYTEK TVÉHO KÓDU ZŮSTÁVÁ STEJNÝ ----
 
   const handleInput = () => {
-    localStorage.setItem("student-name", name);
-    setSignIn(true);
+    if (name.trim() !== "") {
+      localStorage.setItem("student-name", name);
+      setSignIn(true);
+    }
   };
 
   const handleSignOut = () => {
