@@ -38,7 +38,11 @@ npm run dev
    `npm run dev`
 2. Otevřete v prohlížeči: **http://localhost:3000**
 
+## Užitečné odkazy
 
+Tailwind CSS Cheat Sheet : **https://nerdcave.com/tailwind-cheat-sheet**
+Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
+Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
 
 
 
@@ -83,3 +87,9 @@ npm run dev
 1. Run dev server:
    `npm run dev`
 2. In browser open: **http://localhost:3000**
+
+## Useful links
+
+Tailwind CSS Cheat Sheet : **https://nerdcave.com/tailwind-cheat-sheet**
+Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
+Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
