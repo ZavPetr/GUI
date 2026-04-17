@@ -33,6 +33,9 @@ npm run dev
    ```bash
    npm install
    
+3. Nainstalujte ``Tailwind CSS IntelliSense`` jako rozšíření ve VScode.
+   
+   
 ## Jak projekt spustit
 1. Spusťte vývojový server:
    `npm run dev`
@@ -84,6 +87,8 @@ npm run dev
 2. Open the terminal and install all necessary packages (you only need to do this once):
    ```bash
    npm install
+
+3. Install ``Tailwind CSS IntelliSense`` as extension in VScode.
 
 ## How to run the project
 1. Run dev server:
