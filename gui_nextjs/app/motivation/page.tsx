@@ -24,7 +24,7 @@ export default async function Motivace() {
 
         {/* 3. ZOBRAZENÍ DAT */}
         <p className="text-3xl font-bold italic leading-tight text-slate-800">
-          "{rada}"
+          {rada}
         </p>
       </div>
     </main>

@@ -57,7 +57,7 @@ export default function PomodoroPage() {
       <div className={`border-4 border-black p-10 rounded-[40px] shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] text-center transition-colors ${isBreak ? 'bg-green-100' : 'bg-red-300'}`}>
         {/* ČESKÝ TEXT PRO UŽIVATELE */}
         <h1 className="text-4xl font-black uppercase mb-2 tracking-tighter">
-          {isBreak ? "Pauzička \u2615\uFE0E" : "Soustředění \u23F1\uFE0E"}
+          {isBreak ? "Pauzička" : "Soustředění"}
         </h1>
         <p className="text-sm font-bold opacity-50 mb-8 uppercase tracking-[0.2em]">
           Pomodoro Timer
