@@ -105,6 +105,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
           <p>Tady se nacházejí kontakty na tebe.</p>
         </Link>
+
+        <Link href="/pomodoro" className="border-2 border-black p-6 rounded-2xl hover:bg-purple-300 hover:border-purple-500 transition">
+          <h2 className="text-2xl font-bold mb-2">Pomodoro Timer</h2>
+          <p>Tady se nachází časovač pro metodu Pomodoro</p>
+        </Link>
       </div>
     </main>
   );
