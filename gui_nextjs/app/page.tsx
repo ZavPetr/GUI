@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <main className="p-10">
       <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
-        <h1 className="hlavni-nadpis">Ahoj, {name}!</h1>
+        <h1 className="text-4xl font-bold">Ahoj, {name}!</h1>
         <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">
           Odhlásit
         </button>
