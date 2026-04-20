@@ -4,28 +4,28 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const data = {
     "Pondělí": [
-        { cas: "10:00 - 10:50", predmet: "KMA/CAS", mistnost: "CP-6.13", druh: "Přednáška" },
-        { cas: "11:00 - 11:50", predmet: "KMA/CAS", mistnost: "CP-6.13", druh: "Cvičení" },
-        { cas: "13:00 - 13:50", predmet: "KMA/PSM", mistnost: "CP-6.13", druh: "Přednáška" },
-        { cas: "14:00 - 15:50", predmet: "KMA/PSM", mistnost: "CP-6.13", druh: "Cvičení" },
-        { cas: "16:00 - 19:50", predmet: "KI/PRIZ", mistnost: "CP-1.03", druh: "Seminář" }
+        { time: "10:00 - 10:50", subject: "KMA/CAS", room: "CP-6.13", type: "Přednáška" },
+        { time: "11:00 - 11:50", subject: "KMA/CAS", room: "CP-6.13", type: "Cvičení" },
+        { time: "13:00 - 13:50", subject: "KMA/PSM", room: "CP-6.13", type: "Přednáška" },
+        { time: "14:00 - 15:50", subject: "KMA/PSM", room: "CP-6.13", type: "Cvičení" },
+        { time: "16:00 - 19:50", subject: "KI/PRIZ", room: "CP-1.03", type: "Seminář" }
     ],
     "Úterý": [
-        { cas: "09:00 - 10:50", predmet: "KI/UPC", mistnost: "CP-3.18", druh: "Seminář" },
-        { cas: "12:00 - 13:50", predmet: "KI/ODM", mistnost: "CP- -1.21", druh: "Seminář" }
+        { time: "09:00 - 10:50", subject: "KI/UPC", room: "CP-3.18", type: "Seminář" },
+        { time: "12:00 - 13:50", subject: "KI/ODM", room: "CP- -1.21", type: "Seminář" }
     ],
     "Středa": [],
     "Čtvrtek": [
-        { cas: "08:00 - 09:50", predmet: "KI/GUI", mistnost: "CP-6.13", druh: "Přednáška" },
-        { cas: "10:00 - 11:50", predmet: "KI/GUI", mistnost: "CP-6.13", druh: "Cvičení" },
-        { cas: "13:00 - 13:50", predmet: "KI/USU", mistnost: "CP- -1.21", druh: "Přednáška" },
-        { cas: "14:00 - 15:50", predmet: "KI/USU", mistnost: "CP- -1.21", druh: "Cvičení" },
-        { cas: "16:00 - 17:50", predmet: "KI/OPRE", mistnost: "CP-1.03", druh: "Seminář" }
+        { time: "08:00 - 09:50", subject: "KI/GUI", room: "CP-6.13", type: "Přednáška" },
+        { time: "10:00 - 11:50", subject: "KI/GUI", room: "CP-6.13", type: "Cvičení" },
+        { time: "13:00 - 13:50", subject: "KI/USU", room: "CP- -1.21", type: "Přednáška" },
+        { time: "14:00 - 15:50", subject: "KI/USU", room: "CP- -1.21", type: "Cvičení" },
+        { time: "16:00 - 17:50", subject: "KI/OPRE", room: "CP-1.03", type: "Seminář" }
     ],
     "Pátek": [
-        { cas: "09:00 - 10:50", predmet: "KI/PRI", mistnost: "CP-6.14", druh: "Přednáška" },
-        { cas: "11:00 - 12:50", predmet: "KI/SWI", mistnost: "CP-6.13", druh: "Seminář" },
-        { cas: "03:00 - 14:50", predmet: "KI/PRI", mistnost: "CP-6.14", druh: "Cvičení" }
+        { time: "09:00 - 10:50", subject: "KI/PRI", room: "CP-6.14", type: "Přednáška" },
+        { time: "11:00 - 12:50", subject: "KI/SWI", room: "CP-6.13", type: "Seminář" },
+        { time: "03:00 - 14:50", subject: "KI/PRI", room: "CP-6.14", type: "Cvičení" }
     ],
     "Sobota": [],
     "Neděle": []
