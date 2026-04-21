@@ -10,10 +10,10 @@ export default function Homeworks() {
   const [text, setText] = useState("");
 
   // FUNKCE PRO SMAZÁNÍ KONKRÉTNÍHO ÚKOLU
-  const delTasks = (indexKeSmazani: number) => {
+  const delTasks = (indexToDel: number) => {
     // Metoda .filter() vytvoří úplně nové pole. 
     // Do nového pole pustí jen ty úkoly, jejichž index (i) se nerovná indexu, který chceme smazat.
-    const newArray = tasks.filter((_, i) => i !== indexKeSmazani);
+    const newArray = tasks.filter((_, i) => i !== indexToDel);
     setTasks(newArray); // Aktualizujeme stav -> React překreslí seznam
   };
 
