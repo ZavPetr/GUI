@@ -34,6 +34,8 @@ npm run dev
    npm install
    
 3. Nainstalujte ``Tailwind CSS IntelliSense`` jako rozšíření ve VScode.
+
+4. Nainstalujte ``ESLint`` jako rozšíření ve VScode.
    
    
 ## Jak projekt spustit
@@ -88,7 +90,9 @@ npm run dev
    ```bash
    npm install
 
-3. Install ``Tailwind CSS IntelliSense`` as extension in VScode.
+3. Install ``Tailwind CSS IntelliSense`` as an extension in VScode.
+
+4. Install ``ESLint`` as an extension in VScode.
 
 ## How to run the project
 1. Run dev server:
