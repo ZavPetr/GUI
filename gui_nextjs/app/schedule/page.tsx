@@ -3,7 +3,7 @@ import Link from "next/link";
 
 // 1. TYPESCRIPT INTERFACE: Definujeme si "formičku", jak vypadá jedna vyučovací hodina.
 // Pomáhá nám to, aby nám editor napovídal a hlídal chyby v názvech (např. 'room' vs 'mistnost').
-interface Hodina {
+interface Lesson {
   time: string;
   subject: string;
   room: string;
@@ -12,11 +12,11 @@ interface Hodina {
 
 // 2. SERVER COMPONENT: Všimni si klíčového slova 'async'. 
 // Tato komponenta běží na serveru, takže může napřímo sahat pro data.
-export default async function RozvrhPage() {
+export default async function Schedule() {
   
   // 3. MAPOVÁNÍ BAREV: Objekt, který slouží jako jednoduchý převodník.
   // Podle typu hodiny (klíč) vybereme odpovídající Tailwind třídu pro pozadí.
-  const barvy : Record<string, string> = {
+  const colors : Record<string, string> = {
     "Přednáška": "bg-gray-200",
     "Cvičení": "bg-green-200",
     "Seminář": "bg-green-400",
@@ -68,9 +68,9 @@ export default async function RozvrhPage() {
           </div>
         ) : (
           // Pokud hodiny máme, projdeme je pomocí .map() a vykreslíme karty.
-          todaySchedule.map((hodina: Hodina, i: number) => {
+          todaySchedule.map((lesson: Lesson, i: number) => {
             // Zjistíme barvu pozadí podle druhu hodiny z našeho objektu 'barvy'.
-            const bg = barvy[hodina.type] || "bg-white";
+            const bg = colors[lesson.type] || "bg-white";
 
             return (
               <div
@@ -80,20 +80,20 @@ export default async function RozvrhPage() {
                 <div className="flex flex-col justify-between">
                   <div>
                     <span className="bg-black text-white px-4 py-1.5 rounded-xl font-bold text-sm tracking-widest uppercase">
-                      {hodina.time}
+                      {lesson.time}
                     </span>
                     <h2 className="text-4xl font-black mt-4 leading-none">
-                      {hodina.subject}
+                      {lesson.subject}
                     </h2>
                   </div>
                 </div>
 
                 <div className="flex flex-col justify-between items-end text-right min-h-25">
                   <span className="text-lg font-bold uppercase tracking-tight opacity-70">
-                    {hodina.type}
+                    {lesson.type}
                   </span>
                   <p className="font-mono text-base bg-white/50 px-2 py-1 rounded border border-black/10">
-                    Učebna: <span className="font-bold">{hodina.room}</span>
+                    Učebna: <span className="font-bold">{lesson.room}</span>
                   </p>
                 </div>
               </div>

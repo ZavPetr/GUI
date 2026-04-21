@@ -2,24 +2,24 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Ukoly() {
+export default function Homeworks() {
   // 1. STAV PRO SEZNAM: Výchozí pole se dvěma úkoly
-  const [ukoly, setUkoly] = useState(["Koupit kafe", "Udělat zápočet"]);
+  const [tasks, setTasks] = useState(["Koupit kafe", "Udělat zápočet"]);
   
   // 2. STAV PRO INPUT: Sem si ukládáme to, co uživatel zrovna píše do políčka
   const [text, setText] = useState("");
 
   // FUNKCE PRO SMAZÁNÍ KONKRÉTNÍHO ÚKOLU
-  const smazUkol = (indexKeSmazani: number) => {
+  const delTask = (indexToDel: number) => {
     // Metoda .filter() vytvoří úplně nové pole. 
     // Do nového pole pustí jen ty úkoly, jejichž index (i) se nerovná indexu, který chceme smazat.
-    const novePole = ukoly.filter((_, i) => i !== indexKeSmazani);
-    setUkoly(novePole); // Aktualizujeme stav -> React překreslí seznam
+    const newArray = tasks.filter((_, i) => i !== indexToDel);
+    setTasks(newArray); // Aktualizujeme stav -> React překreslí seznam
   };
 
   // FUNKCE PRO VYMAZÁNÍ VŠEHO
-  const smazVsechnyUkoly = () => {
-    setUkoly([]); // Jednoduše nastavíme stav na prázdné pole
+  const delAllTasks = () => {
+    setTasks([]); // Jednoduše nastavíme stav na prázdné pole
   };
 
   return (
@@ -43,7 +43,7 @@ export default function Ukoly() {
             // Kontrola: Nepřidáváme prázdné texty
             if (text.trim() !== "") { 
               // Použijeme "spread" operátor (...) – vezmeme staré úkoly a na konec přidáme nový text
-              setUkoly([...ukoly, text]); 
+              setTasks([...tasks, text]); 
               setText(""); // Po přidání vymažeme políčko
             }
           }}
@@ -53,23 +53,28 @@ export default function Ukoly() {
         </button>
 
         <button
-          onClick={() => smazVsechnyUkoly()}
+          onClick={() => delAllTasks()}
           className="text-red-500 font-bold border-2 border-red-400 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
         >
           Smazat Všechny Úkoly
         </button>
       </div>
 
+      {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}
+      {tasks.length === 0 && (
+        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
+      )}
+
       {/* VYKRESLENÍ SEZNAMU */}
       <ul className="space-y-3">
         {/* Metoda .map() projde pole 'ukoly' a pro každý řetězec vytvoří jeden prvek <li> */}
-        {ukoly.map((u, i) => (
+        {tasks.map((u, i) => (
           // 'key' pomáhá Reactu poznat, který prvek se změnil (nutné u seznamů)
           <li key={i} className="border-2 border-black p-4 rounded-2xl flex justify-between items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <span className="text-lg font-medium">{u}</span>
 
             <button
-              onClick={() => smazUkol(i)} // Předáme index aktuálního úkolu funkci pro smazání
+              onClick={() => delTask(i)} // Předáme index aktuálního úkolu funkci pro smazání
               className="text-red-500 font-bold border-2 border-red-100 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
             >
               Smazat
@@ -77,11 +82,6 @@ export default function Ukoly() {
           </li>
         ))}
       </ul>
-
-      {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}
-      {ukoly.length === 0 && (
-        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
-      )}
     </main>
   );
 }
