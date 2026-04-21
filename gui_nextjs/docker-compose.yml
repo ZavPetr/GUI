@@ -1,7 +1,7 @@
 services:
   next-app:
     build: .
-    container_name: studentsky-dashboard
+    container_name: GUI
     ports:
       - "3000:3000"
     restart: always
