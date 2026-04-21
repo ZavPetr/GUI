@@ -2,7 +2,7 @@ import Link from "next/link";
 
 // Tato komponenta nevyžaduje "use client", protože nepotřebuje stavy (state) ani efekty.
 // Vykreslí se na serveru jako rychlé, statické HTML.
-export default function KontaktyPage() {
+export default function Contacts() {
   
   // 1. DATA: Místo abychom psali každou kartu ručně, uložíme si data do pole objektů.
   // Je to přehlednější a pokud si zítra založíš TikTok, stačí přidat jeden objekt do pole.
