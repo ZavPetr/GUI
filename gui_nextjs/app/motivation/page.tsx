@@ -2,7 +2,7 @@ import Link from "next/link";
 
 // 1. ASYNC: Komponenta je asynchronní, což nám dovoluje používat 'await' přímo v jejím těle.
 // Jelikož zde není "use client", běží tento kód na serveru.
-export default async function Motivace() {
+export default async function Motivation() {
 
   // 2. FETCH: Voláme externí API (v tomto případě server, který vrací náhodné rady).
   // { cache: 'no-store' } je klíčové: říká Next.js, aby si výsledek nepamatoval.
@@ -14,7 +14,7 @@ export default async function Motivace() {
 
   // 3. EXTRAKCE DAT: API vrací objekt, kde je rada schovaná v hlubší struktuře.
   // Musíme se do ní "zanořit" přes data.slip.advice.
-  const rada = data.slip.advice;
+  const motivation = data.slip.advice;
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
@@ -31,7 +31,7 @@ export default async function Motivace() {
 
         {/* ZOBRAZENÍ ZÍSKANÉ RADY: Text vložíme dynamicky pomocí složených závorek */}
         <p className="text-3xl font-bold italic leading-tight text-slate-800">
-          {rada}
+          {motivation}
         </p>
       </div>
     </main>
