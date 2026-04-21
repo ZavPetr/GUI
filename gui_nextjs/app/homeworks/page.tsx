@@ -10,7 +10,7 @@ export default function Homeworks() {
   const [text, setText] = useState("");
 
   // FUNKCE PRO SMAZÁNÍ KONKRÉTNÍHO ÚKOLU
-  const delTasks = (indexToDel: number) => {
+  const delTask = (indexToDel: number) => {
     // Metoda .filter() vytvoří úplně nové pole. 
     // Do nového pole pustí jen ty úkoly, jejichž index (i) se nerovná indexu, který chceme smazat.
     const newArray = tasks.filter((_, i) => i !== indexToDel);
@@ -60,6 +60,11 @@ export default function Homeworks() {
         </button>
       </div>
 
+      {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}
+      {tasks.length === 0 && (
+        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
+      )}
+
       {/* VYKRESLENÍ SEZNAMU */}
       <ul className="space-y-3">
         {/* Metoda .map() projde pole 'ukoly' a pro každý řetězec vytvoří jeden prvek <li> */}
@@ -69,7 +74,7 @@ export default function Homeworks() {
             <span className="text-lg font-medium">{u}</span>
 
             <button
-              onClick={() => delTasks(i)} // Předáme index aktuálního úkolu funkci pro smazání
+              onClick={() => delTask(i)} // Předáme index aktuálního úkolu funkci pro smazání
               className="text-red-500 font-bold border-2 border-red-100 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
             >
               Smazat
@@ -77,11 +82,6 @@ export default function Homeworks() {
           </li>
         ))}
       </ul>
-
-      {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}
-      {tasks.length === 0 && (
-        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
-      )}
     </main>
   );
 }
