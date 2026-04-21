@@ -2,19 +2,18 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Ukoly() {
-  const [ukoly, setUkoly] = useState(["Koupit kafe", "Udělat zápočet"]);
+export default function Homeworks() {
+  const [tasks, setTasks] = useState(["Koupit kafe", "Udělat zápočet"]);
+  
   const [text, setText] = useState("");
 
-  // FUNKCE PRO SMAZÁNÍ
-  const smazUkol = (indexToDel: number) => {
-    // Vytvoříme nové pole, které obsahuje všechno KROMĚ toho indexu, co chceme smazat
-    const novePole = ukoly.filter((_, i) => i !== indexToDel);
-    setUkoly(novePole);
+  const delTask = (indexToDel: number) => {
+    const newArray = tasks.filter((_, i) => i !== indexToDel);
+    setTasks(newArray);
   };
 
-  const smazVsechnyUkoly = () => {
-    setUkoly([]);
+  const delAllTasks = () => {
+    setTasks([]);
   };
 
   return (
@@ -23,7 +22,6 @@ export default function Ukoly() {
 
       <h1 className="text-3xl font-bold my-5">Seznam úkolů</h1>
 
-      {/* PŘIDÁVÁNÍ */}
       <div className="flex gap-2 mb-10">
         <input
           onChange={(e) => setText(e.target.value)}
@@ -33,7 +31,10 @@ export default function Ukoly() {
         />
         <button
           onClick={() => {
-            if (text !== "") { setUkoly([...ukoly, text]); setText(""); }
+            if (text.trim() !== "") { 
+              setTasks([...tasks, text]); 
+              setText("");
+            }
           }}
           className="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800"
         >
@@ -41,21 +42,24 @@ export default function Ukoly() {
         </button>
 
         <button
-          onClick={() => smazVsechnyUkoly()}
+          onClick={() => delAllTasks()}
           className="text-red-500 font-bold border-2 border-red-400 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
         >
           Smazat Všechny Úkoly
         </button>
       </div>
 
-      {/* SEZNAM */}
+      {tasks.length === 0 && (
+        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
+      )}
+
       <ul className="space-y-3">
-        {ukoly.map((u, i) => (
+        {tasks.map((u, i) => (
           <li key={i} className="border-2 border-black p-4 rounded-2xl flex justify-between items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <span className="text-lg font-medium">{u}</span>
 
             <button
-              onClick={() => smazUkol(i)}
+              onClick={() => delTask(i)}
               className="text-red-500 font-bold border-2 border-red-100 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
             >
               Smazat
@@ -63,10 +67,6 @@ export default function Ukoly() {
           </li>
         ))}
       </ul>
-
-      {ukoly.length === 0 && (
-        <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
-      )}
     </main>
   );
 }
