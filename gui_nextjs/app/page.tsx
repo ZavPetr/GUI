@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -6,7 +5,6 @@ import Link from "next/link";
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
 
-  // Načteme jméno ze šuplíku (chráníme se před chybou na serveru)
   const [name, setName] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("student-name") || "";
@@ -21,13 +19,11 @@ export default function Home() {
     return false;
   });
 
-  // Trik pro Next.js: Přepneme na true až po načtení v prohlížeči (asynchronně)
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 0);
     return () => clearTimeout(timer);
   }, []);
 
-  // Dokud není aplikace načtena v prohlížeči, neukazuj nic (Hydration Fix)
   if (!isMounted) return null;
 
   const handleInput = () => {
@@ -43,9 +39,6 @@ export default function Home() {
     setSignIn(false);
   };
 
-  // --------------------------------------------------------
-  // OBRAZOVKA 1: NEPŘIHLÁŠENÝ UŽIVATEL
-  // --------------------------------------------------------
   if (!signIn) {
     return (
       <main className="flex flex-col items-center p-20">
@@ -69,9 +62,6 @@ export default function Home() {
     );
   }
 
-  // --------------------------------------------------------
-  // OBRAZOVKA 2: PŘIHLÁŠENÝ UŽIVATEL (Dashboard)
-  // --------------------------------------------------------
   return (
     <main className="p-10">
       <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">

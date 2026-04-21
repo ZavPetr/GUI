@@ -1,50 +1,39 @@
-"use client"; // Komponenta je interaktivní, běží u klienta (potřebujeme useState)
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 
 export default function Homeworks() {
-  // 1. STAV PRO SEZNAM: Výchozí pole se dvěma úkoly
   const [tasks, setTasks] = useState(["Koupit kafe", "Udělat zápočet"]);
   
-  // 2. STAV PRO INPUT: Sem si ukládáme to, co uživatel zrovna píše do políčka
   const [text, setText] = useState("");
 
-  // FUNKCE PRO SMAZÁNÍ KONKRÉTNÍHO ÚKOLU
   const delTasks = (indexToDel: number) => {
-    // Metoda .filter() vytvoří úplně nové pole. 
-    // Do nového pole pustí jen ty úkoly, jejichž index (i) se nerovná indexu, který chceme smazat.
     const newArray = tasks.filter((_, i) => i !== indexToDel);
-    setTasks(newArray); // Aktualizujeme stav -> React překreslí seznam
+    setTasks(newArray); 
   };
 
-  // FUNKCE PRO VYMAZÁNÍ VŠEHO
   const delAllTasks = () => {
-    setTasks([]); // Jednoduše nastavíme stav na prázdné pole
+    setTasks([]);
   };
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
-      {/* Navigace zpět pomocí Next.js Linku */}
       <Link href="/" className="text-blue-500 font-bold hover:underline">← Zpět domů</Link>
 
       <h1 className="text-3xl font-bold my-5">Seznam úkolů</h1>
 
-      {/* SEKCE PRO PŘIDÁVÁNÍ */}
       <div className="flex gap-2 mb-10">
         <input
-          // Kontrolovaný vstup: onChange neustále aktualizuje stav 'text'
           onChange={(e) => setText(e.target.value)}
-          value={text} // Hodnota v poli je svázaná se stavem
+          value={text} 
           placeholder="Napiš úkol..."
           className="border-2 border-black p-3 rounded-xl grow text-black"
         />
         <button
           onClick={() => {
-            // Kontrola: Nepřidáváme prázdné texty
             if (text.trim() !== "") { 
-              // Použijeme "spread" operátor (...) – vezmeme staré úkoly a na konec přidáme nový text
               setTasks([...tasks, text]); 
-              setText(""); // Po přidání vymažeme políčko
+              setText("");
             }
           }}
           className="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800"
@@ -60,16 +49,13 @@ export default function Homeworks() {
         </button>
       </div>
 
-      {/* VYKRESLENÍ SEZNAMU */}
       <ul className="space-y-3">
-        {/* Metoda .map() projde pole 'ukoly' a pro každý řetězec vytvoří jeden prvek <li> */}
         {tasks.map((u, i) => (
-          // 'key' pomáhá Reactu poznat, který prvek se změnil (nutné u seznamů)
           <li key={i} className="border-2 border-black p-4 rounded-2xl flex justify-between items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <span className="text-lg font-medium">{u}</span>
 
             <button
-              onClick={() => delTasks(i)} // Předáme index aktuálního úkolu funkci pro smazání
+              onClick={() => delTasks(i)}
               className="text-red-500 font-bold border-2 border-red-100 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
             >
               Smazat
@@ -78,7 +64,6 @@ export default function Homeworks() {
         ))}
       </ul>
 
-      {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}
       {tasks.length === 0 && (
         <p className="text-center text-gray-500 mt-10 italic">Hotovo! Nemáš žádné úkoly.</p>
       )}

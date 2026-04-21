@@ -1,8 +1,5 @@
-// app/schedule/page.tsx
 import Link from "next/link";
 
-// 1. TYPESCRIPT INTERFACE: Definujeme si "formičku", jak vypadá jedna vyučovací hodina.
-// Pomáhá nám to, aby nám editor napovídal a hlídal chyby v názvech (např. 'room' vs 'mistnost').
 interface Lesson {
   time: string;
   subject: string;
@@ -10,41 +7,28 @@ interface Lesson {
   type: string;
 }
 
-// 2. SERVER COMPONENT: Všimni si klíčového slova 'async'. 
-// Tato komponenta běží na serveru, takže může napřímo sahat pro data.
 export default async function Schedule() {
   
-  // 3. MAPOVÁNÍ BAREV: Objekt, který slouží jako jednoduchý převodník.
-  // Podle typu hodiny (klíč) vybereme odpovídající Tailwind třídu pro pozadí.
   const colors : Record<string, string> = {
     "Přednáška": "bg-gray-200",
     "Cvičení": "bg-green-200",
     "Seminář": "bg-green-400",
   };
 
-  // 4. DATA FETCHING: Stahujeme data z naší API.
-  // { cache: "no-store" } říká Next.js: "Tuhle stránku neukládej do mezipaměti, 
-  // chci, aby se při každém načtení znovu zeptala na aktuální rozvrh."
   const res = await fetch("http://localhost:3000/api/schedule", { cache: "no-store" });
   const fullSchedule = await res.json();
 
-  // 5. LOGIKA DATUMU: Potřebujeme zjistit, jaký je dnes den.
   const days = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
   const now = new Date();
   
-  // getDay() vrací číslo 0 (Neděle) až 6 (Sobota). Použijeme ho jako index pro pole 'days'.
   const todaysKey = days[now.getDay()];
   
-  // Formátování data do české podoby (např. 20. 4. 2026)
   const formattedDate = now.toLocaleDateString("cs-CZ");
 
-  // 6. FILTROVÁNÍ: Z celého rozvrhu si vytáhneme jen pole pro dnešní den.
-  // Pokud dnes nic není, nastavíme prázdné pole [], aby mapování později nespadlo.
   const todaySchedule = fullSchedule[todaysKey] || [];
 
   return (
     <main className="p-6 md:p-12 max-w-4xl mx-auto min-h-screen bg-white text-black">
-      {/* Tlačítko zpět pomocí klientské navigace Next.js */}
       <Link href="/" className="text-blue-600 font-bold hover:underline mb-8 inline-block">
         ← Zpět na Dashboard
       </Link>
@@ -54,27 +38,23 @@ export default async function Schedule() {
           Rozvrh na {todaysKey} {formattedDate}
         </h1>
 
-        {/* Dynamické zobrazení počtu hodin pomocí délky pole (.length) */}
         <p className="mt-4 text-xl font-bold bg-yellow-300 inline-block px-4 py-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           Celkem předmětů: {todaySchedule.length}
         </p>
       </header>
 
       <div className="flex flex-col gap-6">
-        {/* PODMÍNĚNÉ RENDEROVÁNÍ: Pokud je pole prázdné, ukážeme zprávu o volnu. */}
         {todaySchedule.length === 0 ? (
           <div className="border-4 border-black p-12 rounded-3xl bg-gray-50 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h2 className="text-2xl font-bold italic">Dneska žádná škola!</h2>
           </div>
         ) : (
-          // Pokud hodiny máme, projdeme je pomocí .map() a vykreslíme karty.
           todaySchedule.map((lesson: Lesson, i: number) => {
-            // Zjistíme barvu pozadí podle druhu hodiny z našeho objektu 'barvy'.
             const bg = colors[lesson.type] || "bg-white";
 
             return (
               <div
-                key={i} // Každý prvek v seznamu musí mít v Reactu unikátní klíč.
+                key={i}
                 className={`border-4 border-black p-6 rounded-3xl flex justify-between shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${bg}`}
               >
                 <div className="flex flex-col justify-between">
