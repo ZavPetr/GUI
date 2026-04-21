@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default async function Motivace() {
+export default async function Motivation() {
 
   const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-store" });
   const data = await res.json();
 
-  const rada = data.slip.advice;
+  const motivation = data.slip.advice;
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
@@ -19,7 +19,7 @@ export default async function Motivace() {
         </h1>
 
       <p className="text-3xl font-bold italic leading-tight text-slate-800">
-         &quot;{rada}&quot;
+         {motivation}
       </p>
       </div>
     </main>
