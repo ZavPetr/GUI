@@ -1,8 +1,8 @@
 #  Úvod pro studenty
 
-Tohle je Main Branchi pro předmět **GUI (Grafická uživatelská rozhraní)**! 
+Tohle je Main Branch pro náš projekt. 
 
-Tento projekt bude interaktivní průvodce tvorbou moderní full-stack webové aplikace. Během tohoto workshopu si od nuly postavíme osobní studentský dashboard a prozkoumáme, jak se dnes dělají weby na profesionální úrovni.
+Tento projekt bude interaktivní průvodce tvorbou moderní full-stack webové aplikace. Během této hodiny si od nuly postavíme osobní studentský dashboard a prozkoumáme, jak se dnes dělají weby na profesionální úrovni.
 
 ---
 
@@ -36,9 +36,9 @@ Než začneme kódit, ujistěte se, že máte na svém počítači nainstalován
 
 # Student Introduction
 
-Welcome to the Main Branch for the **GUI (Graphical User Interfaces)** course!
+Welcome to the Main Branch for the our project.
 
-This project serves as an interactive guide to building a modern full-stack web application. During this workshop, we will build a personal student dashboard from scratch and explore how professional websites are created today.
+This project serves as an interactive guide to building a modern full-stack web application. During this lesson, we will build a personal student dashboard from scratch and explore how professional websites are created today.
 
 ---
 
