@@ -7,9 +7,9 @@ export default function Ukoly() {
   const [text, setText] = useState("");
 
   // FUNKCE PRO SMAZÁNÍ
-  const smazUkol = (indexKeSmazani: number) => {
+  const smazUkol = (indexToDel: number) => {
     // Vytvoříme nové pole, které obsahuje všechno KROMĚ toho indexu, co chceme smazat
-    const novePole = ukoly.filter((_, i) => i !== indexKeSmazani);
+    const novePole = ukoly.filter((_, i) => i !== indexToDel);
     setUkoly(novePole);
   };
 
