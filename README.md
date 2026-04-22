@@ -13,7 +13,7 @@ Pokud jste se právě přepnuli do této větve, server možná poběží. Pokud
 
 ##  Samostatný úkol
 1. **Vylepšení validace:** Aktuálně jde přidat jako úkol i prázdný text (jen mezery). Upravte podmínku v tlačítku "Přidat" tak, aby text před uložením ořízla o bílé znaky (nápověda: použijte metodu `.trim()`).
-2. **Nové tlačítko:** Přidejte vedle černého tlačítka "Přidat" ještě jedno menší, červené tlačítko s nápisem "Smazat vše". Po kliknutí na něj se musí celý seznam úkolů vyprázdnit.
+2. **Nové tlačítko:** Přidejte vedle černého tlačítka "Přidat" ještě jedno červené tlačítko s nápisem "Smazat vše". Po kliknutí na něj se musí celý seznam úkolů vyprázdnit.
 
 ## English version
 
@@ -32,4 +32,4 @@ If you have just switched to this branch, the server might still be running. If 
 
 ## Independent Task
 1. **Validation Improvement:** Currently, it's possible to add an empty task (just spaces). Modify the condition in the "Add" button to trim whitespace before saving (hint: use the `.trim()` method).
-2. **New Button:** Add another smaller, red button labeled "Delete All" next to the black "Add" button. Clicking it should clear the entire task list.
+2. **New Button:** Add another red button labeled "Delete All" next to the black "Add" button. Clicking it should clear the entire task list.
