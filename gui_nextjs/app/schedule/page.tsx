@@ -1,19 +1,20 @@
 // app/schedule/page.tsx
 import Link from "next/link";
+import { getScheduleData } from "@/lib/data"; // Toto je ta jediná přidaná řádka pro Docker
 
 // 1. TYPESCRIPT INTERFACE: Definujeme si "formičku", jak vypadá jedna vyučovací hodina.
-// Pomáhá nám to, aby nám editor napovídal a hlídal chyby v názvech (např. 'room' vs 'mistnost').
+// Tady jsem změnil názvy (např. 'cas' místo 'time'), aby seděly na tvůj route.ts.
 interface Lesson {
-  time: string;
-  subject: string;
-  room: string;
-  type: string;
+  cas: string;
+  predmet: string;
+  mistnost: string;
+  druh: string;
 }
 
-// 2. SERVER COMPONENT: Všimni si klíčového slova 'async'. 
+// 2. SERVER COMPONENT: Všimni si klíčového slova 'async'.
 // Tato komponenta běží na serveru, takže může napřímo sahat pro data.
 export default async function Schedule() {
-  
+
   // 3. MAPOVÁNÍ BAREV: Objekt, který slouží jako jednoduchý převodník.
   // Podle typu hodiny (klíč) vybereme odpovídající Tailwind třídu pro pozadí.
   const colors : Record<string, string> = {
@@ -22,24 +23,22 @@ export default async function Schedule() {
     "Seminář": "bg-green-400",
   };
 
-  // 4. DATA FETCHING: Stahujeme data z naší API.
-  // { cache: "no-store" } říká Next.js: "Tuhle stránku neukládej do mezipaměti, 
-  // chci, aby se při každém načtení znovu zeptala na aktuální rozvrh."
-  const res = await fetch("http://localhost:3000/api/schedule", { cache: "no-store" });
-  const fullSchedule = await res.json();
+  // 4. DATA FETCHING: Tady je ta oprava pro Docker.
+  // Místo fetch na localhost voláme data přímo z lib/data.ts.
+  const fullSchedule = await getScheduleData();
 
   // 5. LOGIKA DATUMU: Potřebujeme zjistit, jaký je dnes den.
   const days = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
   const now = new Date();
-  
+
   // getDay() vrací číslo 0 (Neděle) až 6 (Sobota). Použijeme ho jako index pro pole 'days'.
   const todaysKey = days[now.getDay()];
-  
+
   // Formátování data do české podoby (např. 20. 4. 2026)
   const formattedDate = now.toLocaleDateString("cs-CZ");
 
   // 6. FILTROVÁNÍ: Z celého rozvrhu si vytáhneme jen pole pro dnešní den.
-  // Pokud dnes nic není, nastavíme prázdné pole [], aby mapování později nespadlo.
+  // @ts-expect-error : todaysKey je dynamický index, který TS nedokáže automaticky ověřit proti klíčům v fullSchedule
   const todaySchedule = fullSchedule[todaysKey] || [];
 
   return (
@@ -70,7 +69,7 @@ export default async function Schedule() {
           // Pokud hodiny máme, projdeme je pomocí .map() a vykreslíme karty.
           todaySchedule.map((lesson: Lesson, i: number) => {
             // Zjistíme barvu pozadí podle druhu hodiny z našeho objektu 'barvy'.
-            const bg = colors[lesson.type] || "bg-white";
+            const bg = colors[lesson.druh] || "bg-white";
 
             return (
               <div
@@ -80,20 +79,20 @@ export default async function Schedule() {
                 <div className="flex flex-col justify-between">
                   <div>
                     <span className="bg-black text-white px-4 py-1.5 rounded-xl font-bold text-sm tracking-widest uppercase">
-                      {lesson.time}
+                      {lesson.cas}
                     </span>
                     <h2 className="text-4xl font-black mt-4 leading-none">
-                      {lesson.subject}
+                      {lesson.predmet}
                     </h2>
                   </div>
                 </div>
 
                 <div className="flex flex-col justify-between items-end text-right min-h-25">
                   <span className="text-lg font-bold uppercase tracking-tight opacity-70">
-                    {lesson.type}
+                    {lesson.druh}
                   </span>
                   <p className="font-mono text-base bg-white/50 px-2 py-1 rounded border border-black/10">
-                    Učebna: <span className="font-bold">{lesson.room}</span>
+                    Učebna: <span className="font-bold">{lesson.mistnost}</span>
                   </p>
                 </div>
               </div>
