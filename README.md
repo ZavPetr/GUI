@@ -31,6 +31,7 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
 
 API:
 https://api.open-meteo.com/v1/forecast?latitude=50.6607&longitude=14.0325&current=temperature_2m,relative_humidity_2m,weather_code
+
 ---
 
 ## English version
