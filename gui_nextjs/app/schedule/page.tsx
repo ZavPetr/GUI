@@ -16,8 +16,6 @@ export default async function Schedule() {
     "Seminář": "bg-green-400",
   };
 
-  // 4. DATA FETCHING: Tady je ta oprava pro Docker.
-  // Místo fetch na localhost voláme data přímo z lib/data.ts.
   const fullSchedule = await getScheduleData();
 
   const days = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
