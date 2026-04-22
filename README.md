@@ -18,6 +18,11 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
 
 2. **Kreativní výzva (Obsah stránky):** Najděte v projektu již vytvořený soubor `app/contacts/page.tsx`. Aktuálně je v něm jen prázdná kostra. Naplňte ji kompletním obsahem s kontaktními údaji (můžete použít smyšlené údaje). 
    * **Požadavky:** Stránka musí obsahovat funkční odkaz zpět na dashboard, musí být nastylovaná pomocí Tailwindu a její design by měl ladit se zbytkem aplikace (použijte karty, stíny nebo barvy, které jsme se naučili). Je to jen na vaší fantazii.
+  
+3. **Pomodoro výzva (Pokud bude čas tak uděláme společně):**
+   * Vytvořte v projektu nový soubor app/pomodoro/page.tsx a naprogramujte v něm kompletní a funkční Pomodoro časovač, který studentům pomůže se soustředěním.
+   * Požadavky: Stránka musí obsahovat funkční odpočet času (formát MM:SS), tlačítko pro Start/Pauzu a přepínače pro tři různé režimy: Práce (25 min), Krátká pauza    (5 min) a Dlouhá pauza (15 min). Každý režim by měl mít svou specifickou barvu pozadí a design musí ladit se zbytkem aplikace.
+   * Nápověda: K realizaci budete potřebovat klientskou komponentu ("use client"), Hooky useState pro správu času a useEffect pro spuštění logiky odpočtu přes setInterval. Nezapomeňte v useEffect použít "cleanup" funkci pro vymazání intervalu, aby časovač neběžel na pozadí i po opuštění stránky.
 
 ---
 
@@ -43,3 +48,9 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
 
 2. **Creative Challenge (Page Content):** Locate the existing file `app/contacts/page.tsx` in the project. Currently, it only contains an empty skeleton. Fill it with complete contact information (fictional data is fine).
    * **Requirements:** The page must include a working link back to the dashboard, must be styled using Tailwind, and its design should match the rest of the application (use the cards, shadows, or colors we’ve learned). It's entirely up to your imagination.
+  
+3. **Pomodoro Challenge (If time permits, we will work on this together.):**
+   * Create a new file app/pomodoro/page.tsx in your project and program a complete, functional Pomodoro timer to help students focus.
+   * Requirements: The page must include a functional countdown (MM:SS format), a Start/Pause button, and toggles for three different modes: Work (25 min), Short        Break (5 min), and Long Break (15 min). Each mode should have its own specific background color, and the design must match the rest of the application.
+   * Hint: You will need a client component ("use client"), useState hooks for managing the time, and useEffect to trigger the countdown logic via setInterval.          Don't forget to include a "cleanup" function in useEffect to clear the interval so the timer doesn't keep running in the background after leaving the page.
+     
