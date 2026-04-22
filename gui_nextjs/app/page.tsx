@@ -109,13 +109,6 @@ export default function Home() {
             <p>Tady se nacházejí kontakty na tebe.</p>
           </Card>
         </Link>
-
-        <Link href="/#">
-          <Card interactive className="hover:bg-purple-300">
-            <h2 className="text-2xl font-bold mb-2">Pomodoro Timer</h2>
-            <p>Tady se nachází časovač pro metodu Pomodoro</p>
-          </Card>
-        </Link>
       </div>
     </main>
   );
