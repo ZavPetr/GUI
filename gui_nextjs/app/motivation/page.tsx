@@ -5,9 +5,11 @@ import Link from "next/link";
 export default async function Motivation() {
 
   // 2. FETCH: Voláme externí API (v tomto případě server, který vrací náhodné rady).
-  // { cache: 'no-store' } je klíčové: říká Next.js, aby si výsledek nepamatoval.
+  // next: { revalidate: 30 } je klíčové: říká Next.js, aby si výsledek pamatoval jen 30 sekund a pak vygeneroval nový citát.
   // Díky tomu dostane uživatel při každém načtení stránky novou radu.
-  const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-store" });
+  const res = await fetch("https://api.adviceslip.com/advice", { 
+    next: { revalidate: 30 } // Stránka se přegeneruje nejdříve po 30 sekiundách
+  });
   
   // Převádíme proud dat (stream) z odpovědi na čitelný JavaScriptový objekt (JSON).
   const data = await res.json();
