@@ -1,0 +1,9 @@
+import Link from "next/link";
+
+export default function BackLink({ href = "/", children = "← Zpět" }) {
+  return (
+    <Link href={href} className="text-blue-600 font-bold hover:underline mb-8 inline-block">
+      {children}
+    </Link>
+  );
+}
