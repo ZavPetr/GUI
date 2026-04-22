@@ -1,15 +1,16 @@
 #  Fáze 3: Lokální API a Rozvrh
 
-Z interaktivních tlačítek se přesouváme ke zpracování dat. V této fázi si vytvoříme vlastní "backend" (API) přímo uvnitř Next.js a data si z něj stáhneme. Také zapojíme TypeScript.
+V této fázi se naučíme, jak Next.js dokáže pracovat s daty přímo na serveru. Místo abychom data stahovali přes prohlížeč, využijeme Server Components, které jsou bezpečnější a rychlejší. Také poprvé pořádně zapojíme TypeScript.
 
 ##  Jak pokračovat
 Nezapomeňte aplikaci restartovat (`Ctrl + C` -> `npm run dev`), pokud jste měnili větve.
 
 ##  Co v této fázi tvoříme
 * **`app/api/schedule/route.ts`:** Naše vlastní API routa! Když někdo zavolá tuto adresu metodou GET, Next.js mu vrátí JSON soubor s rozvrhem.
-* **`app/schedule/page.tsx`:** Stránka pro rozvrh. 
-  * Naučíte se zde definovat **TypeScript Interface** (`interface Hodina`), abychom přesně věděli, jak vypadají data, se kterými pracujeme.
-  * Data z našeho API stahujeme pomocí funkce `fetch`.
+* **`app/schedule/page.tsx`:** Stránka pro rozvrh.
+  * Zabezpečený přístup k datům: Data neřešíme přes API a fetch, ale voláme přímo serverovou funkci getScheduleData(). Tím se data k uživateli dostanou už "hotová".
+  * Naučíte se zde definovat **TypeScript Interface** (`interface Lesson`), abychom přesně věděli, jak vypadají data, se kterými pracujeme.
+  * Typování objektů: Používáme Record<string, string> pro automatické přiřazování barev k různým typům hodin (přednáška vs. cvičení).
   * Pomocí JavaScriptu zjišťujeme aktuální den a filtrujeme z rozvrhu jen dnešní hodiny.
 
 ##  Samostatný úkol
@@ -28,9 +29,10 @@ Don't forget to restart the application (`Ctrl + C` -> `npm run dev`) if you hav
 
 ## What we are creating in this phase
 * **`app/api/schedule/route.ts`:** Our very own API route! When someone calls this address using the GET method, Next.js will return a JSON file containing the schedule.
-* **`app/schedule/page.tsx`:** The schedule page. 
-  * You will learn how to define a **TypeScript Interface** (`interface Hodina`) so we know exactly what the data we are working with looks like.
-  * We fetch data from our API using the `fetch` function.
+* **`app/schedule/page.tsx`:** The schedule page.
+  * Secure Data Access: We don't use API routes or fetch. Instead, we call the getScheduleData() function directly on the server. This ensures the data is pre-      rendered before reaching the user.
+  * You will learn how to define a **TypeScript Interface** (`interface Lesson`) so we know exactly what the data we are working with looks like.
+  * Object Typing: We use Record<string, string> to automatically assign colors to different lesson types (Lecture vs. Seminar).
   * Using JavaScript, we determine the current day and filter the schedule to show only today's classes.
 
 ## Independent Task
