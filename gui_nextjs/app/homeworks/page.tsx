@@ -18,9 +18,11 @@ export default function Homeworks() {
   };
 
   // FUNKCE PRO VYMAZÁNÍ VŠEHO
+  // #### Úkol pro studenty ####
   const delAllTasks = () => {
     setTasks([]); // Jednoduše nastavíme stav na prázdné pole
   };
+  // ###########################
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
@@ -41,7 +43,7 @@ export default function Homeworks() {
         <button
           onClick={() => {
             // Kontrola: Nepřidáváme prázdné texty
-            if (text.trim() !== "") { 
+            if (text.trim() !== "") { // <-- Úkol pro studenty
               // Použijeme "spread" operátor (...) – vezmeme staré úkoly a na konec přidáme nový text
               setTasks([...tasks, text]); 
               setText(""); // Po přidání vymažeme políčko
@@ -52,12 +54,15 @@ export default function Homeworks() {
           Přidat
         </button>
 
+        {/* #### Úkol pro studenty #### */}
         <button
           onClick={() => delAllTasks()}
           className="text-red-500 font-bold border-2 border-red-400 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors"
         >
           Smazat Všechny Úkoly
         </button>
+        {/* ########################### */}
+
       </div>
 
       {/* PODMÍNĚNÉ ZOBRAZENÍ: Pokud je pole prázdné, ukážeme tuhle zprávu */}

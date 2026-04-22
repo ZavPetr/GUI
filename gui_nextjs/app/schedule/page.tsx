@@ -53,10 +53,13 @@ export default async function Schedule() {
           Rozvrh na {todaysKey} {formattedDate}
         </h1>
 
+        {/* #### Úkol pro studenty #### */}
         {/* Dynamické zobrazení počtu hodin pomocí délky pole (.length) */}
         <p className="mt-4 text-xl font-bold bg-yellow-300 inline-block px-4 py-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           Celkem předmětů: {todaySchedule.length}
         </p>
+        {/* ########################### */}
+
       </header>
 
       <div className="flex flex-col gap-6">

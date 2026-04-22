@@ -114,10 +114,12 @@ export default function Home() {
           <p>Tip pro dnešní den.</p>
         </Link>
 
+        {/* #### Úkol pro studenty #### */}
         <Link href="/contacts" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
           <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
           <p>Tady se nacházejí kontakty na tebe.</p>
         </Link>
+        {/* ########################### */}
 
         <Link href="/pomodoro" className="border-2 border-black p-6 rounded-2xl hover:bg-purple-300 hover:border-purple-500 transition">
           <h2 className="text-2xl font-bold mb-2">Pomodoro Timer</h2>
