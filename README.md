@@ -7,7 +7,7 @@ Pokud jste se právě přepnuli do této větve, server možná poběží. Pokud
 
 ## Co v této fázi tvoříme
 * **`app/homeworks/page.tsx`:** Zcela nová stránka! Tvoříme zde plně funkční To-Do list (Úkolovník).
-  * Naučíte se používat `"use client"` direktivu, která Next.js říká, že tato stránka potřebuje interaktivitu v prohlížeči.
+  * Používáme zase "use client"
   * Používáme Hook `useState` pro ukládání textu z inputu a seznamu úkolů.
   * Používáme metodu `.map()` pro vypsání pole do HTML a `.filter()` pro mazání položek.
 
@@ -26,7 +26,7 @@ If you have just switched to this branch, the server might still be running. If 
 
 ## What we are creating in this phase
 * **`app/homeworks/page.tsx`:** A brand new page! We are building a fully functional To-Do list (Homework Tracker) here.
-  * You will learn how to use the `"use client"` directive, which tells Next.js that this page requires interactivity in the browser.
+  * We will again work with "use client".
   * We use the `useState` Hook to store text from the input and the list of tasks.
   * We use the `.map()` method to render the array into HTML and `.filter()` to delete items.
 
