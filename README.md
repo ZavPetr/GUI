@@ -16,7 +16,7 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
 1. **Práce s daty:** API nám ve svém JSON objektu vrací nejen samotný text rady, ale také její identifikační číslo (ID). Najděte v kódu, jak se k tomuto číslu v objektu `data` dostat, a vypište ho přímo do nadpisu stránky. 
    * *Cílový stav: "Rada #15 pro dnešní den:"*
 
-2. **Kreativní výzva (Obsah stránky):** Najděte v projektu již vytvořený soubor `app/contacts/page.tsx`. Aktuálně je v něm jen prázdná kostra. Naplňte ji kompletním obsahem s kontaktními údaji (můžete použít smyšlené údaje). 
+2. **Kreativní výzva (Obsah stránky):** V projektu si vytvořte soubor `app/contacts/page.tsx`. Naplňte ho kompletním obsahem s kontaktními údaji (můžete použít smyšlené údaje). 
    * **Požadavky:** Stránka musí obsahovat funkční odkaz zpět na dashboard, musí být nastylovaná pomocí Tailwindu a její design by měl ladit se zbytkem aplikace (použijte karty, stíny nebo barvy, které jsme se naučili). Je to jen na vaší fantazii.
   
 3. **Pomodoro výzva (Pokud bude čas tak uděláme společně):**
@@ -29,6 +29,8 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
    * Požadavky: Použijte metodu fetch pro stažení dat z API Open-Meteo. Ze získaného JSON objektu vypište na stránku aktuální teplotu (temperature_2m) a relativní       vlhkost vzduchu (relative_humidity_2m).
    * Nápověda: Postupujte úplně stejně jako u stránky s motivací (/motivation). Jedná se o Server Component, takže kód bude async a nebudete potřebovat "use             client". Data v tomto konkrétním API najdete zanořená v objektu current. Nezapomeňte na designovou konzistenci (karty, stíny, tlusté okraje) a funkční odkaz        zpět na Dashboard.
 
+API:
+https://api.open-meteo.com/v1/forecast?latitude=50.6607&longitude=14.0325&current=temperature_2m,relative_humidity_2m,weather_code
 ---
 
 ## English version
@@ -51,7 +53,7 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
 1. **Data Handling (For fast learners):** The API returns not only the advice text itself in its JSON object but also its identification number (ID). Find in the code how to access this number within the `data` object and print it directly into the page heading. 
    * *Target result: "Advice #15 for today:"*
 
-2. **Creative Challenge (Page Content):** Locate the existing file `app/contacts/page.tsx` in the project. Currently, it only contains an empty skeleton. Fill it with complete contact information (fictional data is fine).
+2. **Creative Challenge (Page Content):** Create a file named app/contacts/page.tsx in your project. Populate it with complete contact information (you can use dummy data).
    * **Requirements:** The page must include a working link back to the dashboard, must be styled using Tailwind, and its design should match the rest of the application (use the cards, shadows, or colors we’ve learned). It's entirely up to your imagination.
   
 3. **Pomodoro Challenge (If time permits, we will work on this together.):**
@@ -65,3 +67,5 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
    * Requirements: Use the fetch method to download data from the Open-Meteo API. From the retrieved JSON object, display the current temperature (temperature_2m)       and relative humidity (relative_humidity_2m) on the page.
    * Hint: Follow the exact same pattern as the motivation page. This is a Server Component, so the code will be async and you won't need "use client". In this          specific API, you will find the data nested inside the current object. Don't forget design consistency (cards, shadows, thick borders) and a working link back      to the Dashboard.
      
+API:
+https://api.open-meteo.com/v1/forecast?latitude=50.6607&longitude=14.0325&current=temperature_2m,relative_humidity_2m,weather_code
