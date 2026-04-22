@@ -28,7 +28,7 @@ export default async function Motivation() {
       {/* Grafický kontejner ve stylu "neobrutalismu" (tlusté čáry, tvrdý stín) */}
       <div className="mt-12 border-4 border-black p-10 rounded-[40px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-yellow-50">
         <h1 className="text-2xl font-black uppercase mb-6 tracking-tight">
-          Rada pro dnešní den:
+          Rada #{data.slip.id} pro dnešní den:
         </h1>
 
         {/* ZOBRAZENÍ ZÍSKANÉ RADY: Text vložíme dynamicky pomocí složených závorek */}
