@@ -57,12 +57,12 @@ export default function Homeworks() {
         </Button>
 
         {/* #### Úkol pro studenty #### */}
-        <button
+        <Button
+          variant="red"
           onClick={() => delAllTasks()}
-          className="text-red-500 font-bold px-3 hover:underline"
         >
           Smazat Vše
-        </button>
+        </Button>
         {/* ########################### */}
       </div>
 
@@ -79,12 +79,12 @@ export default function Homeworks() {
           <li key={i}>
             <Card className="flex justify-between items-center py-4">
               <span className="text-lg font-medium">{u}</span>
-              <button
+              <Button
+                variant="red"
                 onClick={() => delTask(i)} // Předáme index aktuálního úkolu funkci pro smazání
-                className="text-red-500 font-bold hover:underline"
               >
                 Smazat
-              </button>
+              </Button>
             </Card>
           </li>
         ))}
