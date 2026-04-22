@@ -14,7 +14,7 @@ Tohle je první části naší hodiny. V této fázi se seznámíme s Next.js, p
 
 ##  Samostatný úkol
 Naše domovská stránka má nyní 3 karty (Úkoly, Rozvrh, Motivace). 
-Vaším úkolem je přidat **čtvrtou kartu** s názvem "Kontakty", která povede na adresu `/contacts`. Upravte její CSS třídy tak, aby při najetí myší (hover efekt) zmodrala (např. `hover:bg-blue-100` a `hover:border-blue-500`).
+Vaším úkolem je přidat **čtvrtou kartu** s názvem "Kontakty", která povede na adresu `/contacts`. Upravte vstupy pro Card tak, aby při najetí myší (hover efekt) zmodrala (např. `hover:bg-blue-300`).
 
 ## English version
 
@@ -34,4 +34,4 @@ This is the first part of our lesson. In this phase, we will get to know Next.js
 
 ## Independent Task
 Our homepage now has 3 cards (Tasks, Schedule, Motivation). 
-Your task is to add a **fourth card** named "Contacts" that will lead to the `/contacts` address. Update its CSS classes so that it turns blue when hovered over (e.g., `hover:bg-blue-100` and `hover:border-blue-500`).
+Your task is to add a **fourth card** named "Contacts" that will lead to the `/contacts` address. Modify the Card inputs so that it turns blue on hover (e.g., hover:bg-blue-300).
