@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default async function Motivation() {
 
-  const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-store" });
+  const res = await fetch("https://api.adviceslip.com/advice", { 
+    next: { revalidate: 30 } 
+  });
+
   const data = await res.json();
 
   const motivation = data.slip.advice;
@@ -25,3 +28,4 @@ export default async function Motivation() {
     </main>
   );
 }
+
