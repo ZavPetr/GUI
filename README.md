@@ -9,24 +9,8 @@ Pokud jste si projekt právě stáhli (naklonovali z repozitáře), musíte ho n
 
 **1. Naklonujte si repozitář na svůj disk:**
 ```bash
-git clone https://github.com/ZavPetr/GUI/tree/00-start
+git clone https://github.com/ZavPetr/GUI.git
 cd NAZEV-SLOZKY
-
-nebo
-
-npx create-next-app@latest GUI_WEB
-
-Během instalace odpovídejte na otázky přesně takto:
-
-Would you like to use TypeScript? -> Yes
-Would you like to use ESLint? -> Yes
-Would you like to use Tailwind CSS? -> Yes
-Would you like your code inside a src/ directory? -> No
-Would you like to use App Router? (recommended) -> Yes
-Would you like to customize the default import alias? -> No
-
-cd GUI_WEB
-npm run dev
 ```
 
 2. Otevřete terminál a nainstalujte všechny potřebné balíčky (to stačí udělat jen jednou):
@@ -72,24 +56,9 @@ If you just downloaded (cloned from the repository) the project, you must first 
 
 **1. Clone the repository to your disk:**
 ```bash
-git clone https://github.com/ZavPetr/GUI/tree/00-start
+git clone https://github.com/ZavPetr/GUI.git
 cd FOLDER-NAME
 
-or
-
-npx create-next-app@latest GUI_WEB
-
-During installation, answer the questions exactly as follows:
-
-Would you like to use TypeScript? -> Yes
-Would you like to use ESLint? -> Yes
-Would you like to use Tailwind CSS? -> Yes
-Would you like your code inside a src/ directory? -> No
-Would you like to use App Router? (recommended) -> Yes
-Would you like to customize the default import alias? -> No
-
-cd GUI_WEB
-npm run dev
 ```
 
 2. Open the terminal and install all necessary packages (you only need to do this once):
