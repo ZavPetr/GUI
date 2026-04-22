@@ -9,7 +9,7 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
 * **`app/motivation/page.tsx`:** Zcela nová stránka pro denní motivaci.
   * **Všimněte si, že zde CHYBÍ `"use client"`!** Tato stránka se celá vygeneruje už na serveru.
   * Komponenta je `async` a používáme `await fetch(...)` pro stažení dat z veřejného API `https://api.adviceslip.com/advice`.
-  * Do prohlížeče se pošle už rovnou hotové, vyrenderované HTML s textem rady. Žádné zdržování, žádné načítání.
+  * ISR (Incremental Static Regeneration): Nastavíme revalidaci na 30 sekund. To znamená, že Next.js si radu zapamatuje a nebude zbytečně zatěžovat cizí server při každém kliknutí.
 
 ##  Samostatné úkoly
 
@@ -34,7 +34,7 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
 * **`app/motivation/page.tsx`:** A brand new page for daily motivation.
   * **Notice that `"use client"` is MISSING here!** This page is entirely generated on the server.
   * The component is `async`, and we use `await fetch(...)` to download data from the public API `https://api.adviceslip.com/advice`.
-  * Ready-to-use, rendered HTML with the advice text is sent directly to the browser. No delays, no client-side loading.
+  * ISR (Incremental Static Regeneration): We set a 30-second revalidation period. This means Next.js caches the advice, preventing unnecessary requests to the external server on every page refresh.
 
 ## Independent Tasks
 
