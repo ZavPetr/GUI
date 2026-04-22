@@ -1,15 +1,12 @@
-"use client"; // Označujeme komponentu jako klientskou, protože používáme hooky (state, effect) a browser API (localStorage)
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 
 export default function Home() {
-  // 1. Pomocný stav pro vyřešení "Hydratace" – zajistí, aby se kód spustil až po vykreslení v prohlížeči
   const [isMounted, setIsMounted] = useState(false);
 
-  // 2. Inicializace stavu 'name' pomocí funkce:
-  // Tento kód se spustí pouze jednou při prvním načtení komponenty.
   const [name, setName] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("student-name") || "";
@@ -17,7 +14,6 @@ export default function Home() {
     return "";
   });
 
-  // Inicializace stavu 'signIn' – zjišťujeme, zda už máme jméno uložené
   const [signIn, setSignIn] = useState(() => {
     if (typeof window !== "undefined") {
       return !!localStorage.getItem("student-name");
@@ -25,7 +21,6 @@ export default function Home() {
     return false;
   });
 
-  // 3. Po úspěšném vykreslení (mount) v prohlížeči přepneme isMounted na true.
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsMounted(true);
@@ -33,12 +28,9 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // 4. Hydration Fix: Pokud isMounted není true, komponenta nevrací nic (null).
   if (!isMounted) {
     return null;
   }
-
-  // ---- LOGIKA FUNKCÍ ----
 
   const handleInput = () => {
     if (name.trim() !== "") {
@@ -53,7 +45,6 @@ export default function Home() {
     setSignIn(false);
   };
 
-  // Login obrazovka
   if (!signIn) {
     return (
       <main className="flex flex-col items-center p-20">
