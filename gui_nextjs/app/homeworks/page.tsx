@@ -5,10 +5,8 @@ import Card from "@/components/Card";
 import Button from "@/components/Button";
 
 export default function Homeworks() {
-  // 1. STAV PRO SEZNAM
   const [tasks, setTasks] = useState(["Koupit kafe", "Udělat zápočet"]);
 
-  // 2. STAV PRO INPUT
   const [text, setText] = useState("");
 
   const delTask = (indexToDel: number) => {
