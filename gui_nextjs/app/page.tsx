@@ -1,11 +1,15 @@
-// app/page.tsx
-"use client";
+"use client"; // Označujeme komponentu jako klientskou, protože používáme hooky (state, effect) a browser API (localStorage)
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Card from "@/components/Card";
+import Button from "@/components/Button";
 
 export default function Home() {
+  // 1. Pomocný stav pro vyřešení "Hydratace" – zajistí, aby se kód spustil až po vykreslení v prohlížeči
   const [isMounted, setIsMounted] = useState(false);
 
+  // 2. Inicializace stavu 'name' pomocí funkce:
+  // Tento kód se spustí pouze jednou při prvním načtení komponenty.
   const [name, setName] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("student-name") || "";
@@ -13,6 +17,7 @@ export default function Home() {
     return "";
   });
 
+  // Inicializace stavu 'signIn' – zjišťujeme, zda už máme jméno uložené
   const [signIn, setSignIn] = useState(() => {
     if (typeof window !== "undefined") {
       return !!localStorage.getItem("student-name");
@@ -20,14 +25,20 @@ export default function Home() {
     return false;
   });
 
+  // 3. Po úspěšném vykreslení (mount) v prohlížeči přepneme isMounted na true.
   useEffect(() => {
-    const timer = setTimeout(() => setIsMounted(true), 0);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 
-    if (!isMounted) {
-    return null; 
+  // 4. Hydration Fix: Pokud isMounted není true, komponenta nevrací nic (null).
+  if (!isMounted) {
+    return null;
   }
+
+  // ---- LOGIKA FUNKCÍ ----
 
   const handleInput = () => {
     if (name.trim() !== "") {
@@ -42,10 +53,11 @@ export default function Home() {
     setSignIn(false);
   };
 
- if (!signIn) {
+  // Login obrazovka
+  if (!signIn) {
     return (
       <main className="flex flex-col items-center p-20">
-        <div className="border-4 border-black p-10 rounded-3xl text-center">
+        <Card className="text-center p-10">
           <h1 className="text-3xl font-bold mb-4">Vítej!</h1>
           <input
             type="text"
@@ -54,44 +66,48 @@ export default function Home() {
             onChange={(e) => setName(e.target.value)}
             className="border-2 border-gray-300 p-2 rounded-lg block w-full mb-4 text-black"
           />
-          <button
-            onClick={handleInput}
-            className="bg-blue-500 text-white px-6 py-2 rounded-full font-bold w-full hover:bg-blue-700"
-          >
+          <Button onClick={handleInput} variant="black" className="w-full">
             Vstoupit
-          </button>
-        </div>
+          </Button>
+        </Card>
       </main>
     );
   }
 
   return (
     <main className="p-10">
-     <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
+      <header className="border-b-4 border-black pb-5 mb-10 flex justify-between items-center">
         <h1 className="text-4xl font-bold">Ahoj, {name}!</h1>
         <button onClick={handleSignOut} className="text-gray-500 underline hover:text-gray-700">Odhlásit</button>
       </header>
 
-
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-         <Link href="/homeworks" className="border-2 border-black p-6 rounded-2xl hover:bg-green-100 hover:border-green-500 transition">
-           <h2 className="text-2xl font-bold mb-2">Úkoly</h2>
-           <p>Tvé úkoly.</p>
-         </Link>
-
-        <Link href="/schedule" className="border-2 border-black p-6 rounded-2xl hover:bg-red-100 hover:border-red-700 transition">
-          <h2 className="text-2xl font-bold mb-2">Rozvrh</h2>
-          <p>Kdy mám přednášky.</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <Link href="/homeworks">
+          <Card interactive className="hover:bg-green-100">
+            <h2 className="text-2xl font-bold mb-2">Úkoly</h2>
+            <p>Tvé úkoly.</p>
+          </Card>
         </Link>
 
-        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-yellow-100 hover:border-yellow-400 transition">
-          <h2 className="text-2xl font-bold mb-2">Motivace</h2>
-          <p>Tip pro dnešní den.</p>
+        <Link href="/schedule">
+          <Card interactive className="hover:bg-red-100">
+            <h2 className="text-2xl font-bold mb-2">Rozvrh</h2>
+            <p>Kdy mám přednášky.</p>
+          </Card>
         </Link>
 
-        <Link href="#" className="border-2 border-black p-6 rounded-2xl hover:bg-blue-300 hover:border-blue-500 transition">
-          <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
-          <p>Tady se nacházejí kontakty na tebe.</p>
+        <Link href="/#">
+          <Card interactive className="hover:bg-yellow-100">
+            <h2 className="text-2xl font-bold mb-2">Motivace</h2>
+            <p>Tip pro dnešní den.</p>
+          </Card>
+        </Link>
+
+        <Link href="/#">
+          <Card interactive className="hover:bg-blue-300">
+            <h2 className="text-2xl font-bold mb-2">Kontakty</h2>
+            <p>Tady se nacházejí kontakty na tebe.</p>
+          </Card>
         </Link>
       </div>
     </main>
