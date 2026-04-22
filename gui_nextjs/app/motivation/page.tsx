@@ -1,43 +1,35 @@
-import Link from "next/link";
+import BackLink from "@/components/BackLink";
+import Card from "@/components/Card";
 
-// 1. ASYNC: Komponenta je asynchronní, což nám dovoluje používat 'await' přímo v jejím těle.
-// Jelikož zde není "use client", běží tento kód na serveru.
+// 1. ASYNC: Komponenta je asynchronní, což nám dovoluje používat 'await'.
 export default async function Motivation() {
 
-  // 2. FETCH: Voláme externí API (v tomto případě server, který vrací náhodné rady).
-  // next: { revalidate: 30 } je klíčové: říká Next.js, aby si výsledek pamatoval jen 30 sekund a pak vygeneroval nový citát.
-  // Díky tomu dostane uživatel při každém načtení stránky novou radu.
-  const res = await fetch("https://api.adviceslip.com/advice", { 
-    next: { revalidate: 30 } // Stránka se přegeneruje nejdříve po 30 sekiundách
+  // 2. FETCH: Voláme externí API.
+  const res = await fetch("https://api.adviceslip.com/advice", {
+    next: { revalidate: 30 } // Stránka se přegeneruje nejdříve po 30 sekundách
   });
-  
-  // Převádíme proud dat (stream) z odpovědi na čitelný JavaScriptový objekt (JSON).
+
   const data = await res.json();
 
-  // 3. EXTRAKCE DAT: API vrací objekt, kde je rada schovaná v hlubší struktuře.
-  // Musíme se do ní "zanořit" přes data.slip.advice.
+  // 3. EXTRAKCE DAT: API vrací objekt, kde je rada schovaná v hlubší struktuře data.slip.advice.
   const motivation = data.slip.advice;
 
   return (
     <main className="p-10 max-w-2xl mx-auto">
-      {/* Link zajišťuje rychlou navigaci v rámci naší aplikace */}
-      <Link href="/" className="text-blue-500 font-bold hover:underline">
-        ← Zpět na Dashboard
-      </Link>
+      <BackLink />
 
-      {/* Grafický kontejner ve stylu "neobrutalismu" (tlusté čáry, tvrdý stín) */}
-      <div className="mt-12 border-4 border-black p-10 rounded-[40px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-yellow-50">
+      {/* Grafický kontejner ve stylu "neobrutalismu" pomocí komponenty Card */}
+      <Card className="mt-12 p-10 bg-yellow-50 rounded-[40px]">
         <h1 className="text-2xl font-black uppercase mb-6 tracking-tight">
           {/* #### Úkol pro studenty #### */}
           Rada #{data.slip.id} pro dnešní den:
-          {/* ########################### */}
         </h1>
 
         {/* ZOBRAZENÍ ZÍSKANÉ RADY: Text vložíme dynamicky pomocí složených závorek */}
         <p className="text-3xl font-bold italic leading-tight text-slate-800">
           {motivation}
         </p>
-      </div>
+      </Card>
     </main>
   );
 }
