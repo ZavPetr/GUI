@@ -6,6 +6,8 @@ Tohle je první části naší hodiny. V této fázi se seznámíme s Next.js, p
 * **`app/page.tsx`:** Naše domovská stránka. Naučíme se zde pracovat s pamětí prohlížeče (`localStorage`), abychom si pamatovali jméno studenta. 
   A Uděláme vzhled inputu pro přihlášení a také design karet(/contacts, /homeworks, /schedule, /motivations)
   
+  Naučíte se používat "use client" direktivu, která Next.js říká, že tato stránka potřebuje interaktivitu v prohlížeči.
+  
   **React Hooks (useState, useEffect)**: Naučíme se spravovat stav aplikace (jméno uživatele, stav přihlášení) a reagovat na životní cyklus komponenty.
 
   **Ošetření Hydratace**: Implementujeme kontrolu isMounted, která zajistí, že se kód závislý na prohlížeči (localStorage) nespustí       dříve, než je stránka plně připravena. Tím předejdeme chybám při vykreslování na straně serveru.
@@ -23,6 +25,8 @@ This is the first part of our lesson. In this phase, we will get to know Next.js
 ## What we are creating in this phase
 * **`app/page.tsx`:** Our homepage. We will learn how to work with browser memory (`localStorage`) to remember the student's name. 
      A We will design the login input and also the cards design(/contacts, /homeworks, /schedule, /motivations)
+
+  You will learn how to use the "use client" directive, which tells Next.js that this page requires client-side interactivity.
 
   **React Hooks (useState, useEffect)**: We will learn how to manage application state (username, login status) and react to the component lifecycle.
 
