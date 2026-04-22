@@ -43,7 +43,7 @@ export default function Home() {
     return (
       <main className="flex flex-col items-center p-20">
         <div className="border-4 border-black p-10 rounded-3xl text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white karta-stin">
-          <h1 className="hlavni-nadpis mb-4">Vítej!</h1>
+          <h1 className="text-3xl font-bold mb-4">Vítej!</h1>
           <input
             type="text"
             placeholder="Tvé jméno..."
