@@ -30,6 +30,7 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
    * Nápověda: Postupujte úplně stejně jako u stránky s motivací (/motivation). Jedná se o Server Component, takže kód bude async a nebudete potřebovat "use             client". Data v tomto konkrétním API najdete zanořená v objektu current. Nezapomeňte na designovou konzistenci (karty, stíny, tlusté okraje) a funkční odkaz        zpět na Dashboard.
 
 API:
+
 https://api.open-meteo.com/v1/forecast?latitude=50.6607&longitude=14.0325&current=temperature_2m,relative_humidity_2m,weather_code
 
 ---
@@ -69,4 +70,5 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
    * Hint: Follow the exact same pattern as the motivation page. This is a Server Component, so the code will be async and you won't need "use client". In this          specific API, you will find the data nested inside the current object. Don't forget design consistency (cards, shadows, thick borders) and a working link back      to the Dashboard.
      
 API:
+
 https://api.open-meteo.com/v1/forecast?latitude=50.6607&longitude=14.0325&current=temperature_2m,relative_humidity_2m,weather_code
