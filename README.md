@@ -21,8 +21,13 @@ Restartujte server (`Ctrl + C` -> `npm run dev`).
   
 3. **Pomodoro výzva (Pokud bude čas tak uděláme společně):**
    * Vytvořte v projektu nový soubor app/pomodoro/page.tsx a naprogramujte v něm kompletní a funkční Pomodoro časovač, který studentům pomůže se soustředěním.
-   * Požadavky: Stránka musí obsahovat funkční odpočet času (formát MM:SS), tlačítko pro Start/Pauzu a přepínače pro tři různé režimy: Práce (25 min), Krátká pauza    (5 min) a Dlouhá pauza (15 min). Každý režim by měl mít svou specifickou barvu pozadí a design musí ladit se zbytkem aplikace.
-   * Nápověda: K realizaci budete potřebovat klientskou komponentu ("use client"), Hooky useState pro správu času a useEffect pro spuštění logiky odpočtu přes setInterval. Nezapomeňte v useEffect použít "cleanup" funkci pro vymazání intervalu, aby časovač neběžel na pozadí i po opuštění stránky.
+   * Požadavky: Stránka musí obsahovat funkční odpočet času (formát MM:SS), tlačítko pro Start/Pauzu a přepínače pro tři různé režimy: Práce (25 min), Krátká pauza      (5 min) a Dlouhá pauza (15 min). Každý režim by měl mít svou specifickou barvu pozadí a design musí ladit se zbytkem aplikace.
+   * Nápověda: K realizaci budete potřebovat klientskou komponentu ("use client"), Hooky useState pro správu času a useEffect pro spuštění logiky odpočtu přes           setInterval. Nezapomeňte v useEffect použít "cleanup" funkci pro vymazání intervalu, aby časovač neběžel na pozadí i po opuštění stránky.
+  
+4. **Počasí (Práce s externím API) (Pokud bude čas tak uděláme společně):**
+   * Vytvořte v projektu nový soubor app/weather/page.tsx. Cílem je vytvořit stránku, která zobrazuje aktuální počasí v Ústí nad Labem (souřadnice jsou již v API        nastaveny).
+   * Požadavky: Použijte metodu fetch pro stažení dat z API Open-Meteo. Ze získaného JSON objektu vypište na stránku aktuální teplotu (temperature_2m) a relativní       vlhkost vzduchu (relative_humidity_2m).
+   * Nápověda: Postupujte úplně stejně jako u stránky s motivací (/motivation). Jedná se o Server Component, takže kód bude async a nebudete potřebovat "use             client". Data v tomto konkrétním API najdete zanořená v objektu current. Nezapomeňte na designovou konzistenci (karty, stíny, tlusté okraje) a funkční odkaz        zpět na Dashboard.
 
 ---
 
@@ -53,4 +58,10 @@ Restart the server (`Ctrl + C` -> `npm run dev`).
    * Create a new file app/pomodoro/page.tsx in your project and program a complete, functional Pomodoro timer to help students focus.
    * Requirements: The page must include a functional countdown (MM:SS format), a Start/Pause button, and toggles for three different modes: Work (25 min), Short        Break (5 min), and Long Break (15 min). Each mode should have its own specific background color, and the design must match the rest of the application.
    * Hint: You will need a client component ("use client"), useState hooks for managing the time, and useEffect to trigger the countdown logic via setInterval.          Don't forget to include a "cleanup" function in useEffect to clear the interval so the timer doesn't keep running in the background after leaving the page.
+
+  
+4. **Weather (Working with External API) (If time permits, we will work on this together.):**
+   * Create a new file app/weather/page.tsx in your project. The goal is to create a page that displays the current weather for Ústí nad Labem (coordinates are          already set in the API).
+   * Requirements: Use the fetch method to download data from the Open-Meteo API. From the retrieved JSON object, display the current temperature (temperature_2m)       and relative humidity (relative_humidity_2m) on the page.
+   * Hint: Follow the exact same pattern as the motivation page. This is a Server Component, so the code will be async and you won't need "use client". In this          specific API, you will find the data nested inside the current object. Don't forget design consistency (cards, shadows, thick borders) and a working link back      to the Dashboard.
      
