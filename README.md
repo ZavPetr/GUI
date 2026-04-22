@@ -52,6 +52,12 @@ Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
 Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
 
 
+## Začátek tvorby
+
+1. Vytváření komponent, abychom je později mohli používat.
+2. Implementace komponentů.
+
+
 
 ## English version
 
@@ -67,13 +73,13 @@ If you just downloaded (cloned from the repository) the project, you must first 
 **1. Clone the repository to your disk:**
 ```bash
 git clone https://github.com/ZavPetr/GUI/tree/00-start
-cd NAZEV-SLOZKY
+cd FOLDER-NAME
 
-nebo
+or
 
 npx create-next-app@latest GUI_WEB
 
-Během instalace odpovídejte na otázky přesně takto:
+During installation, answer the questions exactly as follows:
 
 Would you like to use TypeScript? -> Yes
 Would you like to use ESLint? -> Yes
@@ -106,3 +112,9 @@ Tailwind CSS Cheat Sheet : **https://nerdcave.com/tailwind-cheat-sheet**
 Next.js Tutorial : **https://www.geeksforgeeks.org/nextjs/nextjs-tutorial/**
 
 Next.js Cheat Sheet : **https://devsheets.io/sheets/nextjs**
+
+
+## Getting Started
+
+1. Creating Components So We Can Use Them Later.
+2. Implementing Components.
