@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getScheduleData } from "@/lib/data";
 
 interface Lesson {
   time: string;
@@ -8,23 +9,25 @@ interface Lesson {
 }
 
 export default async function Schedule() {
-  
+
   const colors : Record<string, string> = {
     "Přednáška": "bg-gray-200",
     "Cvičení": "bg-green-200",
     "Seminář": "bg-green-400",
   };
 
-  const res = await fetch("http://localhost:3000/api/schedule", { cache: "no-store" });
-  const fullSchedule = await res.json();
+
+  const fullSchedule = await getScheduleData();
+
 
   const days = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
   const now = new Date();
-  
+
   const todaysKey = days[now.getDay()];
-  
+
   const formattedDate = now.toLocaleDateString("cs-CZ");
 
+  // @ts-expect-error : todaysKey je dynamický index, který TS nedokáže automaticky ověřit proti klíčům v fullSchedule
   const todaySchedule = fullSchedule[todaysKey] || [];
 
   return (
