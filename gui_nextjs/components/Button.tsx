@@ -3,7 +3,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function Button({ children, variant = "white", className = "", ...props }: ButtonProps) {
-  // Definice barevných variant
   const variants = {
     white: "bg-white text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white",
 
@@ -15,7 +14,6 @@ export default function Button({ children, variant = "white", className = "", ..
   return (
     <button
       {...props}
-      // border-black: rám zůstává vždy černý pro neobrutalistický styl
       className={`border-4 border-black py-2 px-6 rounded-2xl font-black uppercase active:shadow-none active:translate-x-1 active:translate-y-1 transition-all ${variants[variant]} ${className}`}
     >
       {children}
